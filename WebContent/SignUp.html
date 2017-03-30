@@ -53,12 +53,24 @@
 								   Your Error Message goes here
 							</div> <!-- End Error box -->
 			        		<form action="#" method="get"  >			        			
-						   		 <input type="text" placeholder="Name" class="input-field" required/> 
+						   		 <input type="text" placeholder="Name" class="input-field" required/>
+						   		 <input type="text" placeholder="USER ID" class="input-field" required/>
+						   		 <div class="container" class="input-field">
+						   		 	직급 선택
+						   		 	<select class="form-control" name="usrGrade" required >
+										<option value="JA" name="JA">JA</option>
+										<option value="A" name="A">A</option>
+										<option value="SA" name="SA">SA</option>
+										<option value="M" name="M">AMoption>
+										<option value="S" name="S">S</option>
+									</select>
+								</div>
 						   		 <input type="email" placeholder="E-mail"  class="input-field" required/> 
+						   		 <input type="tel" placeholder="Phone Number"  class="input-field" required/> 
 						   		 <input type="password"  placeholder="Password"  class="input-field"  required/>  
 						   		 <input type="password"  placeholder="Confirm Password"  class="input-field"   required/>  
 						   		 <label class="checkbox">
-        		                	<input type="checkbox" value="option1" required> I agree to something I will never read
+        		                	<input type="checkbox" value="option1" required> 가입에 동의하시겠습니까?
         		           		  </label>
 						   		 <button type="submit" class="btn btn-login">Sign Up</button> 
 							</form>	
