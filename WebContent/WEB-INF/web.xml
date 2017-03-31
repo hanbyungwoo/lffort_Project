@@ -19,4 +19,24 @@
     <servlet-name>SignUpCheck</servlet-name>
     <url-pattern>/signupcheck</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>LoginCheck</servlet-name>
+    <servlet-class>controller.LoginCheck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginCheck</servlet-name>
+    <url-pattern>/logincheck</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LoginComplete</servlet-name>
+    <servlet-class>controller.LoginComplete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginComplete</servlet-name>
+    <url-pattern>/logincomplete</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

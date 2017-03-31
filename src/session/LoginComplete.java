@@ -18,7 +18,7 @@ public class LoginComplete extends HttpServlet {
       session.setAttribute("usrId", usrId);
       
       //메인페이지로 이동해야함!!!
-      response.sendRedirect("sessionEndView");
+      response.sendRedirect("main.html");
 
    }
 }
