@@ -43,7 +43,9 @@ public class UsrDAO {
 		ResultSet rset = null;
 		UsrDTO d = null;
 		try {
+			System.out.println("DB연결전;;;;;;");
 			con = DBUtil.getConnection();
+			System.out.println("DB연결후;;;;;;");
 			pstmt = con.prepareStatement("select * from USR where USRID=?");
 			pstmt.setString(1, usrId);
 			rset = pstmt.executeQuery();

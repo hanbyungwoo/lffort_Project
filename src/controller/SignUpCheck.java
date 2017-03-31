@@ -21,14 +21,17 @@ public class SignUpCheck extends HttpServlet {
 		String usrGrade = request.getParameter("usrGrade");
 		String usrEmail = request.getParameter("usrEmail");
 		String userPhone = request.getParameter("usrPhone");
+		
 		try {
+			System.out.println("------------------------------");
 			UsrDTO d = UsrDAO.selectOne(usrId);
+			System.out.println("++++++++++++++++");
 			//해당 usrId가 존재하는 경우, 회원가입 불가능
 			if(d != null) {
 				//회원가입 불가능하다고 alert창 띄우고, 다시 회원가입 페이지로 가기
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
-				
+				 
 				PrintWriter out = response.getWriter();
 				out.println("<script language='javascript'>");
 				out.println("alert('ID가 중복됩니다.');");
