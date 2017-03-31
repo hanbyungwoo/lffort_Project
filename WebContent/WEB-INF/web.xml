@@ -10,8 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
-    <display-name>SignUpCheck</display-name>
     <servlet-name>SignUpCheck</servlet-name>
     <servlet-class>controller.SignUpCheck</servlet-class>
   </servlet>
@@ -20,7 +18,7 @@
     <url-pattern>/signupcheck</url-pattern>
   </servlet-mapping>
   
-  
+
   <servlet>
     <servlet-name>LoginCheck</servlet-name>
     <servlet-class>controller.LoginCheck</servlet-class>
@@ -39,4 +37,5 @@
     <url-pattern>/logincomplete</url-pattern>
   </servlet-mapping>
   
+
 </web-app>
