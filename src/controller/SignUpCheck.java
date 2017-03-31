@@ -28,7 +28,7 @@ public class SignUpCheck extends HttpServlet {
 				//회원가입 불가능하다고 alert창 띄우고, 다시 회원가입 페이지로 가기
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html; charset=UTF-8");
-				 
+				
 				PrintWriter out = response.getWriter();
 				out.println("<script language='javascript'>");
 				out.println("alert('ID가 중복됩니다.');");

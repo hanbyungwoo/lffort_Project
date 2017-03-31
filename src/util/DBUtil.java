@@ -15,8 +15,6 @@ public class DBUtil {
 		}
 	}
 	
-	/* 개인 IP상에 내장된 DB에 접속
-	 * ID: SCOTT/ PW: TIGER */
 	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection( "jdbc:oracle:thin:@lfforttest.c6sjtqkwhpik.us-west-2.rds.amazonaws.com:1521/TEST","MANAGER","LFFORT1234");
 	}
