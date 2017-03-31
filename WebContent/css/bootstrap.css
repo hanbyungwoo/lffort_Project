@@ -152,7 +152,8 @@ legend {
 button,
 input,
 select,
-textarea {
+textarea,
+selectbox {
   margin: 0;
   font-family: inherit;
   font-size: 100%;
@@ -314,7 +315,8 @@ body {
 input,
 button,
 select,
-textarea {
+textarea,
+selectbox {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -1883,7 +1885,8 @@ input[type="search"] {
 }
 
 input[type="radio"],
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="selectbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
   /* IE8-9 */
@@ -1908,7 +1911,8 @@ select optgroup {
 
 input[type="file"]:focus,
 input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+input[type="checkbox"]:focus,
+input[type="selectbox"]:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
@@ -1987,7 +1991,8 @@ textarea.form-control {
 }
 
 .radio,
-.checkbox {
+.checkbox,
+.selectbox {
   display: block;
   min-height: 20px;
   padding-left: 20px;
@@ -1997,7 +2002,8 @@ textarea.form-control {
 }
 
 .radio label,
-.checkbox label {
+.checkbox label,
+.selectbox label {
   display: inline;
   margin-bottom: 0;
   font-weight: normal;
@@ -2007,18 +2013,22 @@ textarea.form-control {
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
+.checkbox-inline input[type="checkbox"],
+.selectbox input[type="selectbox"],
+.selectbox-inline input[type="selectbox"] {
   float: left;
   margin-left: -20px;
 }
 
 .radio + .radio,
-.checkbox + .checkbox {
+.checkbox + .checkbox,
+.selectbox + .selectbox {
   margin-top: -5px;
 }
 
 .radio-inline,
-.checkbox-inline {
+.checkbox-inline,
+.selectbox-inline {
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -2028,7 +2038,8 @@ textarea.form-control {
 }
 
 .radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
+.checkbox-inline + .checkbox-inline,
+.selectbox-inline + .selectbox-inline {
   margin-top: 0;
   margin-left: 10px;
 }
@@ -2204,14 +2215,16 @@ textarea.input-lg {
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
-.form-horizontal .checkbox-inline {
+.form-horizontal .checkbox-inline,
+.form-horizontal .selectbox-inline {
   padding-top: 7px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .form-horizontal .radio,
-.form-horizontal .checkbox {
+.form-horizontal .checkbox,
+.form-horizontal .selectbox {
   min-height: 27px;
 }
 
