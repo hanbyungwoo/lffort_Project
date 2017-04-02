@@ -1,6 +1,7 @@
 package util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,6 +13,8 @@ public class Crawling {
 		String url = "http://www.lotte.co.kr/04_promote/";
 		Document doc = Jsoup.connect(url + "bbs_list_news.jsp").get();
 //		System.out.println(doc.toString());
+		ArrayList<String> urls = new ArrayList<String>();
+		ArrayList<String> names = new ArrayList<String>();;
 		
 		Elements elements = doc.select("table.board_list");
 //		System.out.println(elements.toString());
@@ -19,10 +22,18 @@ public class Crawling {
 			Elements td = e.getElementsByTag("td");
 			Elements href = td.select("[href]");
 			for(Element e2 : href ) {
-				System.out.println(e2.attr("abs:href"));	// url
-				System.out.println(e2.text());				// name
+				urls.add(e2.attr("abs:href"));
+				names.add(e2.text());
+//				System.out.println(e2.attr("abs:href"));	// url
+//				System.out.println(e2.text());				// name
+				
 			}
 
+		}
+		
+		
+		for(int i=0; i<urls.size(); i++) {
+			System.out.println(urls.get(i) + " : " + names.get(i));
 		}
 
 	}
