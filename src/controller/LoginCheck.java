@@ -20,14 +20,12 @@ public class LoginCheck extends HttpServlet {
          UsrDTO d = UsrDAO.selectOne(usrId);
          //usr 정보가 일치한다면
          if(d.getUsrId().equals(usrId) && d.getUsrPw().equals(usrPw)) {
-<<<<<<< HEAD
-                        //세션 생성: client당 1씩 생성, 관리는 서버가 함
+               //세션 생성: client당 1씩 생성, 관리는 서버가 함
 //            HttpSession session = request.getSession();
             
             //생성된 세션에 데이터 저장: server 메모리에 저장
 //            session.setAttribute("usrId", usrId);
             
-=======
           //세션 생성: client당 1씩 생성, 관리는 서버가 함
             HttpSession session = request.getSession();
             
@@ -35,7 +33,6 @@ public class LoginCheck extends HttpServlet {
             session.setAttribute("usrId", usrId);
             
             System.out.println("usrId: " + usrId);
->>>>>>> master
             //메인페이지로 이동해야함!!!
             response.sendRedirect("main.html");
          }
