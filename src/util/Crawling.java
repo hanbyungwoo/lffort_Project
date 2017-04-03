@@ -8,13 +8,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import model.domain.NewEvent;
+
 public class Crawling {
-	public static void main(String[] args) throws IOException {
+	public static ArrayList<NewEvent> NewEvent() throws IOException {
 		String url = "http://www.lotte.co.kr/04_promote/";
 		Document doc = Jsoup.connect(url + "bbs_list_news.jsp").get();
 //		System.out.println(doc.toString());
-		ArrayList<String> urls = new ArrayList<String>();
-		ArrayList<String> names = new ArrayList<String>();;
+		ArrayList<NewEvent> info = new ArrayList<NewEvent>();
+		
 		
 		Elements elements = doc.select("table.board_list");
 //		System.out.println(elements.toString());
@@ -22,19 +24,21 @@ public class Crawling {
 			Elements td = e.getElementsByTag("td");
 			Elements href = td.select("[href]");
 			for(Element e2 : href ) {
-				urls.add(e2.attr("abs:href"));
-				names.add(e2.text());
-//				System.out.println(e2.attr("abs:href"));	// url
-//				System.out.println(e2.text());				// name
+				info.add(new NewEvent(e2.attr("abs:href"), e2.text()));	// url, name
+//				urls.add(e2.attr("abs:href"));
+//				names.add(e2.text());
+				System.out.println(e2.attr("abs:href"));	// url
+				System.out.println(e2.text());				// name
 				
 			}
 
 		}
 		
 		
-		for(int i=0; i<urls.size(); i++) {
-			System.out.println(urls.get(i) + " : " + names.get(i));
-		}
+//		for(int i=0; i<urls.size(); i++) {
+//			System.out.println(urls.get(i) + " : " + names.get(i));
+//		}
+		return info;
 
 	}
 
