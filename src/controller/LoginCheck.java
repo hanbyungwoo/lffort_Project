@@ -11,22 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.domain.UsrDTO;
+import sun.nio.cs.HistoricallyNamedCharset;
 
 public class LoginCheck extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String usrId = request.getParameter("id");
+      System.out.println("출력되라");
+	  String usrId = request.getParameter("id");
       String usrPw = request.getParameter("pw");
+      System.out.println("안녕");
       try {
          UsrDTO d = UsrDAO.selectOne(usrId);
+         System.out.println("콘솔출력");
          //usr 정보가 일치한다면
          if(d.getUsrId().equals(usrId) && d.getUsrPw().equals(usrPw)) {
-               //세션 생성: client당 1씩 생성, 관리는 서버가 함
-//            HttpSession session = request.getSession();
-            
-            //생성된 세션에 데이터 저장: server 메모리에 저장
-//            session.setAttribute("usrId", usrId);
-            
-          //세션 생성: client당 1씩 생성, 관리는 서버가 함
+         //세션 생성: client당 1씩 생성, 관리는 서버가 함
+        	System.out.println("sdfsdfsdfsdf");
+        	
             HttpSession session = request.getSession();
             
             //생성된 세션에 데이터 저장: server 메모리에 저장
@@ -34,7 +34,7 @@ public class LoginCheck extends HttpServlet {
             
             System.out.println("usrId: " + usrId);
             //메인페이지로 이동해야함!!!
-            response.sendRedirect("main.html");
+            response.sendRedirect("/lffort_project/jsp/main.jsp");
          }
          //usr 정보가 일치하지 않는다면
          else {
@@ -47,7 +47,8 @@ public class LoginCheck extends HttpServlet {
             out.println("</script>");
             out.close();
             
-            response.sendRedirect("Login.html");
+            response.sendRedirect("/lffort_project/Login.html");
+            
          }
       } catch (SQLException e) {
          e.printStackTrace();
