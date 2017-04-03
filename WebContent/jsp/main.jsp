@@ -743,21 +743,14 @@
                             	<%
                                 	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
                                 	event = Crawling.NewEvent();
+                                	request.setAttribute("list", event);
                                 %>
-                                ${event}
-                                <c:forEach items="${event}" var="data">
-									${data.name} : ${data.url}<br>
-									 <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-	                                    <i class="fa fa-comment fa-fw"></i> New Comment
-	                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-	                                    </span>
+                                <c:forEach items="${requestScope.list}" var="data">
+									 <a href="${data.url}" class="list-group-item">
+	                                    <i class="fa fa-comment fa-fw"></i> ${data.name}
                                 	</a>
 								</c:forEach>
 								
-                            	
-                            	
-                                
-                                
                             </div>
                             <!-- /.list-group -->
                             <a href="http://www.lotte.co.kr/04_promote/bbs_list_news.jsp" class="btn btn-default btn-block">View All Alerts</a>
