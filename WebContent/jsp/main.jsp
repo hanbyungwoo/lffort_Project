@@ -490,7 +490,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="calendar"></div>
+                            <div id="calendar">
+                            
+                            <script>input_date(<%=%>)</script>
+                            
+                            
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -914,7 +919,7 @@
 
 	
 	
-	<script src="/dist/fullcalendar/memo.js"></script>
+	<script src="js/memo.js"></script>
 
 
 
