@@ -7,12 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>main</title>
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="https://fullcalendar.io/mstile-144x144.png">
+
+
+<link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.css' />
+<title>LFFORT</title>
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -21,7 +23,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
     <!-- Bootstrap Core CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -47,11 +48,7 @@
 </head>
 
 <body>
-	<%
-		ArrayList<NewEvent> data = Crawling.NewEvent();
-	%>
-
-    <div id="wrapper">
+	<div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -62,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="main.jsp" style="color:red">LFFORT</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -267,7 +264,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="Login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -309,7 +306,7 @@
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="RegisterSchedule.html"><i class="fa fa-edit fa-fw"></i> 老沥 殿废</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
@@ -487,30 +484,13 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 老沥 包府
+                             
+                            
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
+                            <div id="calendar"></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -738,12 +718,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
+                            <!-- <div class="list-group">
                             
                             	<%
-                                	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
-                                	event = Crawling.NewEvent();
-                                	request.setAttribute("list", event);
+                               // 	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
+                               // 	event = Crawling.NewEvent();
+                               // 	request.setAttribute("list", event);
                                 %>
                                 <c:forEach items="${requestScope.list}" var="data">
 									 <a href="${data.url}" class="list-group-item">
@@ -751,7 +731,7 @@
                                 	</a>
 								</c:forEach>
 								
-                            </div>
+                            </div>  -->
                             <!-- /.list-group -->
                             <a href="http://www.lotte.co.kr/04_promote/bbs_list_news.jsp" class="btn btn-default btn-block">View All Alerts</a>
                         </div>
@@ -912,6 +892,53 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+    
+
+
+	<script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
+	<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.js'></script>
+	<script src='https://fullcalendar.io/js/home.js?3.3.0-1.6.0-3'></script>
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	<script src="/dist/fullcalendar/memo.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-3534877-8', 'auto');
+	ga('send', 'pageview');
+	</script>
 
 </body>
 
