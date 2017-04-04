@@ -492,7 +492,9 @@
                         <div class="panel-body">
                             <div id="calendar">
                             
-                            <script>input_date(<%=%>)</script>
+                            <script>
+                            	//input_date()
+                            </script>
                             
                             
                             </div>
@@ -723,12 +725,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <!-- <div class="list-group">
+                        	<!-- <div class="list-group">
                             
                             	<%
-                               // 	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
-                               // 	event = Crawling.NewEvent();
-                               // 	request.setAttribute("list", event);
+                                //	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
+                                //	event = Crawling.NewEvent();
+                                //	request.setAttribute("list", event);
                                 %>
                                 <c:forEach items="${requestScope.list}" var="data">
 									 <a href="${data.url}" class="list-group-item">
@@ -736,7 +738,7 @@
                                 	</a>
 								</c:forEach>
 								
-                            </div>  -->
+                            </div> -->
                             <!-- /.list-group -->
                             <a href="http://www.lotte.co.kr/04_promote/bbs_list_news.jsp" class="btn btn-default btn-block">View All Alerts</a>
                         </div>

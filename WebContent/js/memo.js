@@ -10,17 +10,14 @@ function input_data(data) {
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: true,
-    events: 
-      data
+    events: [{
+    	title : 'aaa',
+    	start : '2017-04-04 09:00:00',
+    	end : '2017-04-05 09:00:00',
+    	constraint: 'availableForMeeting',
+        color: '#606060'
+    }]
+      
+      
     });
 } 
-
-// function showObj(obj) {
-//    var str = "";
-//    for(key in obj) {
-//       str += key+"="+obj[key]+"\n";
-//    }
-
-//    alert(str);
-//    return;
-// }

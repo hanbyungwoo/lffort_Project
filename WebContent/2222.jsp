@@ -11,12 +11,16 @@
 <meta name="msapplication-TileImage" content="https://fullcalendar.io/mstile-144x144.png">
 
 
-
+<link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.css' />
 <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.js'></script>
-<script src='https://fullcalendar.io/js/home.js?3.3.0-1.6.0-3'></script>
 
+<!-- data -->
+<script src="js/memo.js"></script>
+<!-- 
+<script src='https://fullcalendar.io/js/home.js?3.3.0-1.6.0-3'></script>
+ -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -37,7 +41,7 @@ ga('send', 'pageview');
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="calendar"></div>
+                            <div id="calendar"><script>input_data(1)</script></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
