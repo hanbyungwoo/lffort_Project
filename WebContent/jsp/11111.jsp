@@ -1,3 +1,4 @@
+<%@page import="controller.DateInformation"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="EUC-KR"%>
 <%@page import="model.domain.NewEvent, java.util.ArrayList, util.Crawling"%>
@@ -10,14 +11,17 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="msapplication-TileImage" content="https://fullcalendar.io/mstile-144x144.png">
 
-
+ 
+<!-- Custom Fonts -->
+<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel='stylesheet' href='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.css' />
 <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.js'></script>
 
+
 <!-- data -->
-<script src="js/memo.js"></script>
+<script src="../js/memo.js"></script>
 <!-- 
 <script src='https://fullcalendar.io/js/home.js?3.3.0-1.6.0-3'></script>
  -->
@@ -41,12 +45,17 @@ ga('send', 'pageview');
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="calendar"><script>input_data(1)</script></div>
+                        <% 
+                        	String date = DateInformation.selectDate();
+                        	request.setAttribute("date", date);
+                        %>
+                        
+
+                            <!-- <div id="calendar"><script>input_data(${requestScope.date});</script></div> -->
+                            <div id="calendar"><script>input_data(${requestScope.date});</script></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
 
-</div>
-<head>
-</head>
+</body>
 </html>
