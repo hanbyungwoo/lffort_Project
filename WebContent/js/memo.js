@@ -15,6 +15,7 @@ function input_data(data) {
     editable: true,
     events: 
     	data
+    	
     });
 }
 
