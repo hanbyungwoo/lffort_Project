@@ -17,6 +17,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 
 
 public class AES256 {
+	public static final String key = "asdfghjklqwertyu";
     private String iv;
     private Key keySpec;
     

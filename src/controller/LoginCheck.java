@@ -2,8 +2,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import model.domain.UsrDTO;
 import sun.nio.cs.HistoricallyNamedCharset;
+import util.AES256;
 
 public class LoginCheck extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,11 +26,20 @@ public class LoginCheck extends HttpServlet {
 	  String usrId = request.getParameter("id");
       String usrPw = request.getParameter("pw");
       System.out.println("안녕");
+      AES256 a = new AES256(AES256.key);
+		
+		String new_pw = null;
+		try {
+			new_pw = a.aesEncode(usrPw);
+		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
+				| InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+			e.printStackTrace();
+		}
       try {
          UsrDTO d = UsrDAO.selectOne(usrId);
          System.out.println("콘솔출력");
          //usr 정보가 일치한다면
-         if(d.getUsrId().equals(usrId) && d.getUsrPw().equals(usrPw)) {
+         if(d.getUsrId().equals(usrId) && d.getUsrPw().equals(new_pw)) {
          //세션 생성: client당 1씩 생성, 관리는 서버가 함
         	System.out.println("sdfsdfsdfsdf");
         	

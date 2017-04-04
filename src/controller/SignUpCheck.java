@@ -2,8 +2,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,10 +49,18 @@ public class SignUpCheck extends HttpServlet {
 			}
 			//해당 usrId가 존재하지 않는 경우, 회원가입 가능
 			else {
-//				AES256 aes = new AES256("12345");
+
+				AES256 a = new AES256(AES256.key);
 				
+				String new_pw = null;
+				try {
+					new_pw = a.aesEncode(usrPw);
+				} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
+						| InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+					e.printStackTrace();
+				}
 				
-				UsrDTO d1 = new UsrDTO(usrId, usrPw, usrName,photo, usrGrade, usrEmail,userPhone);
+				UsrDTO d1 = new UsrDTO(usrId, new_pw, usrName,photo, usrGrade, usrEmail,userPhone);
 				UsrDAO.insert(d1);
 				//로그인 페이지로 바로 넘어가기
 				response.sendRedirect("Login.html");

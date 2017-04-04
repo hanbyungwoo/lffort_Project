@@ -1,3 +1,12 @@
+
+<c:if test="${empty not sessionScope.usrId}">
+	<%
+		
+		response.sendRedirect("../Login.html");
+	%>		
+</c:if>
+
+
 <nav class="navbar navbar-default navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
 		<div class="navbar-header">
@@ -7,7 +16,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp" style="color: red">LFFORT</a>
+			<a class="navbar-brand" href="main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
 		</div>
 		<!-- /.navbar-header -->
 
@@ -181,7 +190,7 @@
 					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 					</li>
 					<li class="divider"></li>
-					<li><a href="Login.html"><i class="fa fa-sign-out fa-fw"></i>
+					<li><a href="logout.jsp"><i class="fa fa-sign-out fa-fw"></i>
 							Logout</a></li>
 				</ul> <!-- /.dropdown-user --></li>
 			<!-- /.dropdown -->
