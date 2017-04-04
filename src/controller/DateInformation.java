@@ -1,25 +1,26 @@
 package controller;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+import util.AES256;
 import util.DBUtil;
 
 public class DateInformation {
 	
 
 	
-	public static String selectDate() throws SQLException {
+	public static String selectDate() throws SQLException, UnsupportedEncodingException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String date = "[";
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate,  todocheck from todo where todoflag = 1");
+			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate+1,  todocheck from todo where todoflag = 1");
 			rset = pstmt.executeQuery();
 			
 			// #e2480b 빨

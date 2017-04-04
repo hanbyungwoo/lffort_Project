@@ -8,54 +8,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="msapplication-TileColor" content="#2b5797">
-<meta name="msapplication-TileImage"
-   content="https://fullcalendar.io/mstile-144x144.png">
-<link rel='stylesheet'
-   href='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.css' />
-<title>LFFORT</title>
-<script type="text/javascript">
-   $('#fromDate').datetimepicker({
-      language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다. 
-      pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다. 
-      defalutDate : new Date()
-   // 기본값으로 오늘 날짜를 입력한다. 기본값을 해제하려면 defaultDate 옵션을 생략한다.
-   });
-   $('#toDate').datetimepicker({
-      language : 'ko',
-      pickTime : false,
-      defalutDate : new Date()
-   });}
-</script>
-</head>
 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="stylesheet" href="css/datepicker.css">
 <!-- Custom Fonts -->
 <link
    href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css"
    rel="stylesheet" type="text/css">
-<link rel='stylesheet'
-   href='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.css' />
 <script
    src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
-<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<!-- jQuery -->
 <script
-   src='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.js'></script>
+   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
 
-<script src="/path/to/jquery.js"></script>
-<!-- jQuery is required -->
-<link href="/path/to/datepicker.css" rel="stylesheet">
-<script src="/path/to/datepicker.js"></script>
-<link
-   href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css"
-   rel="stylesheet" />
+<!-- Metis Menu Plugin JavaScript -->
+<script
+   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script
+   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://fengyuanchen.github.io/js/common.js"></script>
+<script
+   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
+<script
+   src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
 
 
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+
+<title>LFFORT</title>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#startDate').datepicker({
+            format: "yyyy/mm/dd"
+        });
+        $('#endDate').datepicker({
+            format: "yyyy/mm/dd"
+        });
+    });
+</script>
+</head>
 
 <!-- Bootstrap Core CSS -->
 <link
@@ -76,7 +78,7 @@
 <!-- Custom Fonts -->
 <link
    href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css"
-   rel="stylesheet" type="text/css">
+   rel="stylesheet" type="text/css">   
 
 <body>
    <div id="wrapper">
@@ -354,9 +356,10 @@
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
-                     ㄴㅇㄹ
-                     <input id="fromDate" type="text"> <input id="toDate" type="text">
-
+                     <div class="hero-unit">
+                           <b>일정 시작 시간</b> <input type="text" placeholder="시작 시간을 입력해주세요." id="startDate" class="form-control"/>
+                           <b>일정 종료 시간</b> <input type="text" placeholder="종료 시간을 입력해주세요."  id="endDate" class="form-control" />
+                     </div>
                      <!-- /.panel-body -->
                   </div>
                   <!-- /.panel -->
@@ -373,36 +376,7 @@
       </div>
       <!-- /#wrapper -->
 
-      <!-- jQuery -->
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
-
-      <!-- Bootstrap Core JavaScript -->
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-      <!-- Metis Menu Plugin JavaScript -->
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
-
-      <!-- Morris Charts JavaScript -->
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/raphael/raphael.min.js"></script>
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.min.js"></script>
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
-
-      <!-- Custom Theme JavaScript -->
-      <script
-         src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://fengyuanchen.github.io/js/common.js"></script>
-  <script
-   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-<script
-   src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+      
 </body>
 </html>
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.domain.UsrDTO;
+import util.AES256;
 
 public class SignUpCheck extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,6 +43,9 @@ public class SignUpCheck extends HttpServlet {
 			}
 			//해당 usrId가 존재하지 않는 경우, 회원가입 가능
 			else {
+//				AES256 aes = new AES256("12345");
+				
+				
 				UsrDTO d1 = new UsrDTO(usrId, usrPw, usrName,photo, usrGrade, usrEmail,userPhone);
 				UsrDAO.insert(d1);
 				//로그인 페이지로 바로 넘어가기
