@@ -1,3 +1,4 @@
+<%@page import="controller.SelectInfo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="EUC-KR"%>
 <%@page
@@ -88,12 +89,18 @@
 									<i class="fa fa-comments fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">26</div>
+									<div class="huge">
+										<%
+											int toWork = SelectInfo.HowMany((String)session.getAttribute("usrId"));
+											request.setAttribute("work", toWork);
+										%>
+										${requestScope.work}
+									</div>
 									<div>진행해야할 업무</div>
 								</div>
 							</div>
 						</div>
-						<a href="#">
+						<a href="DetailWork.jsp">
 							<div class="panel-footer">
 								<span class="pull-left">View Details</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -110,14 +117,14 @@
 									<i class="fa fa-tasks fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">12</div>
+									<div class="huge">New Task</div>
 									<div>일정 등록</div>
 								</div>
 							</div>
 						</div>
 						<a href="#">
 							<div class="panel-footer">
-								<span class="pull-left">View Details</span> <span
+								<span class="pull-left">Register</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 								<div class="clearfix"></div>
 							</div>

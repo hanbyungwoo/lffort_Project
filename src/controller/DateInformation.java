@@ -25,7 +25,7 @@ public class DateInformation {
 			rset = pstmt.executeQuery();
 			rset.next();
 			int row = rset.getInt(1);
-			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate+1, todocheck from todo where todoflag = 1");
+			pstmt = con.prepareStatement("select usrid, tododesc, todosdate, todoedate+1, todocheck from todo where todoflag = 1");
 			rset = pstmt.executeQuery();
 			
 			// #e2480b 빨
