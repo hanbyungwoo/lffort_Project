@@ -121,8 +121,8 @@ $(document).ready(function(){
 										 N
 									</c:otherwise>
 									</c:choose></td>
-								<td>${data.start}</td>
-								<td>${data.end}</td>
+								<td align="center">${data.start}</td>
+								<td align="center">${data.end}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -137,22 +137,22 @@ $(document).ready(function(){
 					int cur_page = Integer.parseInt(str_page);
 					String id = (String)session.getAttribute("usrId");
 					
-					int pageNum = (int)Math.ceil(total/10);
-					out.println("----");
-					out.println(pageNum);
+					int pageNum = (int)Math.ceil(total/10)+1;
+					out.println(":::");
+					out.println(cur_page);
 				%>
-				
-				<c:if test="{page!=1}">
+				<c:if test="${requestScope.page}!=1">
 					<a href="<%=url%>DetailWork?page='<%=cur_page-1%>'&usrid=<%=id%>">이전</a>
 				</c:if>
 				<a href="<%=url%>DetailWork?page=1&usrid=<%=id%>"> 1</a>
 				<a href="<%=url%>DetailWork?page=2&usrid=<%=id%>"> 2 </a>
 				<a href="<%=url%>DetailWork?page=3&usrid=<%=id%>"> 3 </a>
 				<a href="<%=url%>DetailWork?page=4&usrid=<%=id%>"> 4 </a>
-				<c:if test="{page!=pageNum}">
-					<a href="<%=url%>DetailWork?page='<%=cur_page-1%>'&usrid=<%=id%>">이전</a>
+				<a href="<%=url%>DetailWork?page=5&usrid=<%=id%>"> 5 </a>
+				<c:if test="{page != <%=pageNum%>}">
+					<a href="<%=url%>DetailWork?page=<%=cur_page+1%>&usrid=<%=id%>">다음</a>
 				</c:if>
-				<a href="<%=url%>DetailWork?page='<%=cur_page+1%>'&usrid=<%=id%>">다음</a>
+				
 				</c:if>
 			</div>
 		</div>
