@@ -10,13 +10,14 @@ public class Todo {
 	String desc;
 	int flag;
 	int percent;
+	int total;
 	
 	
 	public Todo() {
 		super();
 	}
 	
-	public Todo(String usrId, String todoType, Date start, Date end, String desc, int flag, int percent) {
+	public Todo(String usrId, String todoType, Date start, Date end, String desc, int flag, int percent, int total) {
 		super();
 		this.usrId = usrId;
 		this.todoType = todoType;
@@ -25,6 +26,7 @@ public class Todo {
 		this.desc = desc;
 		this.flag = flag;
 		this.percent = percent;
+		this.total = total;
 	}
 	public String getUsrId() {
 		return usrId;
@@ -68,6 +70,13 @@ public class Todo {
 	public void setPercent(int percent) {
 		this.percent = percent;
 	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
 	
 	
 	

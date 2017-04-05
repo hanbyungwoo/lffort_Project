@@ -35,23 +35,27 @@ public class SelectInfo {
 		return toWork;
 	}
 	
-	public static ArrayList<Todo> SelectTodo(String id) throws SQLException, UnsupportedEncodingException {
+	public static ArrayList<Todo> SelectTodo(String id, String page) throws SQLException, UnsupportedEncodingException {
 		System.out.println("selectTodo-_- : " + id);
 		id = "MANAGER";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Todo> todos = new ArrayList<Todo>();
-		
+		int pre = Integer.parseInt(page);
+		pre = pre*10-9;
+		int post = pre*10;
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("SELECT * FROM( SELECT ROWNUM AS rn, todo.*, count(*) over() as totcnt from todo where usrid=? ) todo where rn BETWEEN ? AND ?");
+			pstmt = con.prepareStatement("SELECT * FROM( SELECT todo.*, count(*) over() as totcnt, ROWNUM AS rn from todo where usrid=? ) todo where rn BETWEEN ? AND ?");
 //			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate, tododesc, todoflag, todocheck, rownum from todo where usrid=?");
 			pstmt.setString(1, id);
+			pstmt.setInt(2, pre);
+			pstmt.setInt(3, post);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				todos.add(new Todo(rset.getString(1), rset.getString(2), rset.getDate(3), rset.getDate(4), rset.getString(5), rset.getInt(6), rset.getInt(7)));
+				todos.add(new Todo(rset.getString(1), rset.getString(2), rset.getDate(3), rset.getDate(4), rset.getString(5), rset.getInt(6), rset.getInt(7), rset.getInt(8)));
 			}
 			
 		} finally {
@@ -61,5 +65,6 @@ public class SelectInfo {
 		System.out.println("bBbB" + todos);
 		return todos;
 	}
+
 	
 }

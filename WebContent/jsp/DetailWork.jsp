@@ -54,7 +54,16 @@
 <link
    href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css"
    rel="stylesheet" type="text/css">   
-
+<script>
+$(document).ready(function(){
+   $('table tr').mouseover(function(){ 
+      $(this).css("backgroundColor","#ccc"); 
+   }); 
+   $('table tr').mouseout(function(){ 
+      $(this).css("backgroundColor","#fff"); 
+   }); 
+}); 
+</script>
 <body>
    <div id="wrapper">
 
@@ -90,8 +99,9 @@
 					<tbody>
 					<%
 						int num=1;
-						ArrayList<Todo> list = SelectInfo.SelectTodo((String)session.getAttribute("usrId"));
-						request.setAttribute("todos", list);
+					
+						//ArrayList<Todo> list = SelectInfo.SelectTodo((String)session.getAttribute("usrId"));
+						//ArrayList<Todo> list = request.setAttribute("todos", list);
 					%>
 					<c:forEach items="${requestScope.todos}" var="data">
 						<tr>
@@ -129,8 +139,67 @@
 					</tbody>
 				</table>
 			</div>
+			<br>
+			<div class="col-md-10" align="center">
+			
+			1<br>
+			2<br>
+			3<br>
+			<c:if test="${not empty  requestScope.page}">
+			<%
+				int list = 10;
+				int block = 10;
+				int total = ${data.total};
+				int page = Integer.parseInt({requestScope.page});
+				String id = ${sessionScope.usrid};
+				
+				int pageNum = Math.ceil(total/list);		//총페이지
+				int blockNum = Math.ceil(pageNum/block);
+				int nowBlock = Math.ceil(page/block);
+				
+				int s_page = (nowBlock * block) -9;
+				if(s_page <=1) {
+					s_page=1;
+				}
+				int e_page = nowBlock*block;
+				if(pageNum <= e_page) {
+					e_page = pageNum;
+				}
+				///////check == 0???
+				if(page==1) {
+				} else {
+					%>
+						<a href="/DetailWork.jsp?page='<%=s_page-1%>'&usrid=<%=id%>">이전</a>
+					<%
+				}
+				for(int i=s_page; i<=e_page; i++) {%>
+					
+				<%}
+			%>
 
-		</div>
+          if($check == 0) { ?>
+          
+            <?php for($i=$s_page; $i<=$e_page; $i++) { ?>
+              <a href="/c_player?page=<?=$i?>"><?=$i?></a>
+            <?php } ?>
+              <a href="/c_player?page=<?=$e_page+1?>">다음</a>
+            <?php } else { ?>
+              <?php if($page == 1) {
+              } else {
+                ?>
+                <a href="/c_player/get_player?team_name=<?=$team_name?>&position=<?=$position?>&player_name=<?=$player_name?>&page=<?=$s_page-1?>">이전</a> <?php
+              } ?>
+          
+            <?php for($i=$s_page; $i<=$e_page; $i++) { ?>
+              <a href="/c_player/get_player?team_name=<?=$team_name?>&position=<?=$position?>&player_name=<?=$player_name?>&page=<?=$i?>"><?=$i?></a>
+            <?php } ?>
+              <a href="/c_player/get_player?team_name=<?=$team_name?>&position=<?=$position?>&player_name=<?=$player_name?>&page=<?=$e_page+1?>">다음</a>
+            <?php }?>
+          <?php } ?>
+			</c:if>
+
+      </div>
+	</div>
 		<!-- /#wrapper -->
 
       

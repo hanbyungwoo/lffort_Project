@@ -29,6 +29,14 @@
     <url-pattern>/logincomplete</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>TodoController</servlet-name>
+    <servlet-class>controller.TodoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TodoController</servlet-name>
+    <url-pattern>/TodoController</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>DetailWork</display-name>
     <servlet-name>DetailWork</servlet-name>
