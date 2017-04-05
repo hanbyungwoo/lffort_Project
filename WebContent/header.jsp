@@ -16,7 +16,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
+			<a class="navbar-brand" href="jsp/main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
 		</div>
 		<!-- /.navbar-header -->
 

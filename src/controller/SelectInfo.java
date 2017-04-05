@@ -36,15 +36,21 @@ public class SelectInfo {
 	}
 	
 	public static ArrayList<Todo> SelectTodo(String id, String page) throws SQLException, UnsupportedEncodingException {
-		System.out.println("selectTodo-_- : " + id);
+		System.out.println("wpogpwogjpwoj");
+		int pre = Integer.parseInt(page);
+		int post = pre*10;
+		pre = pre*10-9;
+		System.out.println("eeeeeeeeeee");
+		System.out.println("selectTodo-_- : pre, post-------------- " + id);
 		id = "MANAGER";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Todo> todos = new ArrayList<Todo>();
-		int pre = Integer.parseInt(page);
-		pre = pre*10-9;
-		int post = pre*10;
+		
+		
+		System.out.println("_--------------------------");
+		
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement("SELECT * FROM( SELECT todo.*, count(*) over() as totcnt, ROWNUM AS rn from todo where usrid=? ) todo where rn BETWEEN ? AND ?");
@@ -62,7 +68,7 @@ public class SelectInfo {
 			DBUtil.close(con, pstmt, rset);
 		}
 		
-		System.out.println("bBbB" + todos);
+		System.out.println("pre : " + pre + ", post : " + post + "bBbB" + todos);
 		return todos;
 	}
 
