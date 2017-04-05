@@ -33,21 +33,7 @@
 <!-- Custom Fonts -->
 <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<<<<<<< HEAD
 
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/jquery/jquery.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/flot/jquery.flot.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/flot/jquery.flot.categories.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/flot/jquery.flot.time.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/flot/jquery.flot.selection.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=url%>chartLib/flot/jquery.flot.resize.js"></script>
-=======
     <script language="javascript" type="text/javascript" src="<%=url%>chartLib/jquery/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.categories.js"></script>
@@ -55,7 +41,7 @@
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.selection.js"></script>
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.resize.js"></script>
  
->>>>>>> cd26b33f61abbc7ca040eb555e466ef3bc8adc21
+
 
 </head>
 
