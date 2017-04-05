@@ -4,9 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import util.AES256;
 import util.DBUtil;
 
 public class DateInformation {
@@ -20,12 +20,19 @@ public class DateInformation {
 		String date = "[";
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate+1,  todocheck from todo where todoflag = 1");
+			
+			pstmt = con.prepareStatement("select count(*) from todo where todoflag = 1");
+			rset = pstmt.executeQuery();
+			rset.next();
+			int row = rset.getInt(1);
+			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate+1, todocheck from todo where todoflag = 1");
 			rset = pstmt.executeQuery();
 			
 			// #e2480b 빨
 			// #efd62f 노
 			// #44e56a 초
+			System.out.println(row);
+			
 			while(rset.next()) {
 				date = date + "{title : '" + rset.getString(1) + "님 " + rset.getString(2) + "', start : '" + rset.getDate(3) + "', end : '" + rset.getDate(4) +
 						"', constraint: 'availableForMeeting',";
@@ -39,7 +46,7 @@ public class DateInformation {
 					date = date + " color: '#0094ff'}";
 				}
 				
-				if(rset.next()) {
+				if(rset.getRow() != row) {
 					date = date + ",";
 				}
 			}
