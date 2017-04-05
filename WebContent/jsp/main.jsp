@@ -36,25 +36,15 @@
 	src='https://fullcalendar.io/js/fullcalendar-3.3.0/fullcalendar.min.js'></script>
 
 <!-- Bootstrap Core CSS -->
-<link
-	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+<link	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css"	rel="stylesheet">
 <!-- MetisMenu CSS -->
-<link
-	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css"
-	rel="stylesheet">
+<link	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link
-	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"
-	rel="stylesheet">
+<link	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"	rel="stylesheet">
 <!-- Morris Charts CSS -->
-<link
-	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css"
-	rel="stylesheet">
+<link	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css"	rel="stylesheet">
 <!-- Custom Fonts -->
-<link
-	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -100,7 +90,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="DetailWork.jsp">
+						<a href="../DetailWork?page=1&usrid=${sessionScope.usrId}">
 							<div class="panel-footer">
 								<span class="pull-left">View Details</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

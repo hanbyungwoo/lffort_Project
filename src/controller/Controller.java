@@ -1,42 +1,48 @@
 package controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import model.domain.UsrDTO;
-import view.EndView;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class Controller {
-	public static void select() throws SQLException {
-		ArrayList<UsrDTO> list = DAO.selectAll();
-		EndView.printList(list);
-	}
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-	public static void update(int code, int buy) {
-		boolean isSucc = false;
+//x, y 좌표값 요청 및 응답
+public class Controller extends HttpServlet{
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+		//System.out.println("-jk[---------------");
+		String command = req.getParameter("command");
+		String usrId = req.getParameter("usrId");
+		String sDate = req.getParameter("sDate");
+		String eDate = req.getParameter("eDate");
+		res.setContentType("text/html;charset=utf-8");
+		
+		PrintWriter out = res.getWriter();
+		HashMap<String, Object> keyValue = null; 
 		try {
-			isSucc = DAO.update(code, buy);
+			if(command.equals("getPercent")){
+				System.out.println("---------------------");
+				keyValue = statDAO.getPercent(usrId, sDate, eDate);//일자별 데이터 출력
+			}else if(command.equals("getWokrStat")){
+				keyValue = statDAO.getWokrStat(usrId, sDate, eDate);// 유형별 통계
+			}else if(command.equals("getDayStat")){
+				keyValue = statDAO.getDayStat(usrId, sDate, eDate);// 퇴근시간
+			}else{
+				
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		if(isSucc) {
-			EndView.printMsg("���ſ� �����߽��ϴ�!!");
-		} else {
-			EndView.printMsg("���ſ� ���� �̤�");
-		}
-	}
-
-	public static void insert(UsrDTO UsrDTO) {
-		boolean isSucc = false;
-		try {
-			isSucc = DAO.insert(UsrDTO);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(isSucc) {
-			EndView.printMsg("��ǰ�߰� ����");
-		} else {
-			EndView.printMsg("��ǰ�߰� ����");
-		}
+		}		
+		
+		JSONObject obj = new JSONObject(keyValue);
+		//System.out.println(obj.toJSONString());
+		out.println(obj.toJSONString());
 	}
 }

@@ -96,43 +96,53 @@
 							<i class="fa fa-bar-chart-o fa-fw"></i> 일정 등록
 						</div>
 						<!-- /.panel-heading -->
+						<% String url=request.getContextPath() + "/"; %>
+	                  <form action="<%=url%>TodoController">
 						<div class="panel-body">
 							<div class="hero-unit">
 								<b>일정 시작 시간</b> <input type="text" placeholder="시작 시간을 입력해주세요."	id="startDate" class="form-control" />
 								<b>일정 종료 시간</b> <input type="text" placeholder="종료 시간을 입력해주세요." id="endDate" class="form-control" />
 							</div>
-						</div>
-					</div>
+						<div class="form-group">
+                           <label for="sel1">업무 종류</label>
+                           <select class="form-control" name="todoSelect">
+                            <option>출,퇴근</option>
+                            <option>교육</option>
+                            <option>회의</option>
+                            <option>프로젝트</option>
+                            <option>운영</option>
+                            <option>기타</option>
+                           </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="comment">업무 상세 내용</label>
+                          <textarea class="form-control" rows="5" name="descTodo" placeholder="업무 상세내용을 기술해주세요."></textarea>
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <div class="button" align="center">
+                        <button type="submit" class="btn btn-login">저장</button>
+                     </div>
+                  </form>
+                  <div class="panel-body">
+                  
+                  </div>
+                  <!-- /.panel -->
+                  <!-- /.panel -->
+               </div>
+               <!-- /.col-lg-8 -->
 
-					<!-- /.col-lg-4 -->
-				</div>
-				
-				<div class="col-lg-8">
+               <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+         </div>
+         <!-- /#page-wrapper -->
 
-					<div class="panel panel-default">
+      </div>
+      <!-- /#wrapper -->
 
-						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i> 일정 등록
-						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body">
-							<div class="hero-unit">
-								<b>일정 시작 시간</b> <input type="text" placeholder="시작 시간을 입력해주세요."	id="startDate" class="form-control" />
-								<b>일정 종료 시간</b> <input type="text" placeholder="종료 시간을 입력해주세요." id="endDate" class="form-control" />
-							</div>
-						</div>
-					</div>
-
-					<!-- /.col-lg-4 -->
-				</div>
-				<!-- /.row -->
-			</div>
-			<!-- /#page-wrapper -->
-
-		</div>
-		<!-- /#wrapper -->
 
       
 </body>
 </html>
-

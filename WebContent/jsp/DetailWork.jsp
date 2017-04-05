@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-   pageEncoding="EUC-KR"%>
+   pageEncoding="utf-8"%>
 <%@page
-   import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation"%>
+   import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation, controller.SelectInfo, model.domain.Todo"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
-						<i class="fa fa-edit fa-fw"></i>»ó¼¼ ¾÷¹« ÇöÈ²
+						<i class="fa fa-edit fa-fw"></i>ìƒì„¸ ì—…ë¬´ í˜„í™©
 					</h1>
 				</div>
 				<!-- /.col-lg-12 -->
@@ -74,37 +74,57 @@
 
 			<br><br>
 			<!-- /.row -->
-			<div class="col-md-10">
+			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>number</th>
-							<th>ºĞ·ù</th>
-							<th>¼³¸í</th>
-							<th>¿Ï¼ºµµ(%)</th>
-							<th>°ø°³¿©ºÎ</th>
+							<th>No.</th>
+							<th>ë¶„ë¥˜</th>
+							<th width="150">ì„¤ëª…</th>
+							<th>ì™„ì„±ë„(%)</th>
+							<th>ê³µê°œì—¬ë¶€</th>
+							<th>ì‹œì‘ì¼</th>
+							<th>ë§ˆê°ì¼</th>
 						</tr>
 					</thead>
 					<tbody>
-						<!-- <?php $num = 1;?> -->
-						<!-- <?php foreach($hit_avg as $row):?> -->
+					<%
+						int num=1;
+						ArrayList<Todo> list = SelectInfo.SelectTodo((String)session.getAttribute("usrId"));
+						request.setAttribute("todos", list);
+					%>
+					<c:forEach items="${requestScope.todos}" var="data">
 						<tr>
 							<td>
-								->
+								<%=num++%>
 							</td>
 							<td>
-								->
+								${data.todoType}
 							</td>
 							<td>
-								->
+								${data.desc}
 							</td>
 							<td>
-								->
+								${data.percent}
 							</td>
 							<td>
-								->
+								<c:choose>
+									<c:when test="${data.flag==1}">
+										Y
+									</c:when>
+									<c:otherwise>
+										 N
+									</c:otherwise>
+								</c:choose>
+							</td>
+							<td>
+								${data.start}
+							</td>
+							<td>
+								${data.end}
 							</td>
 						</tr>
+					</c:forEach>
 						<!-- <?php endforeach; ?> -->
 					</tbody>
 				</table>

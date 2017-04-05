@@ -12,8 +12,6 @@
     <servlet-name>SignUpCheck</servlet-name>
     <url-pattern>/signupcheck</url-pattern>
   </servlet-mapping>
-  
-
   <servlet>
     <servlet-name>LoginCheck</servlet-name>
     <servlet-class>controller.LoginCheck</servlet-class>
@@ -22,7 +20,6 @@
     <servlet-name>LoginCheck</servlet-name>
     <url-pattern>/logincheck</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoginComplete</servlet-name>
     <servlet-class>controller.LoginComplete</servlet-class>
@@ -31,6 +28,22 @@
     <servlet-name>LoginComplete</servlet-name>
     <url-pattern>/logincomplete</url-pattern>
   </servlet-mapping>
-  
-
+  <servlet>
+    <description></description>
+    <display-name>DetailWork</display-name>
+    <servlet-name>DetailWork</servlet-name>
+    <servlet-class>controller.DetailWork</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailWork</servlet-name>
+    <url-pattern>/DetailWork</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>c</servlet-name>
+    <servlet-class>controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>c</servlet-name>
+    <url-pattern>/charData</url-pattern>
+  </servlet-mapping>
 </web-app>
