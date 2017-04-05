@@ -40,6 +40,20 @@
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.selection.js"></script>
 	<script language="javascript" type="text/javascript" src="<%=url%>chartLib/flot/jquery.flot.resize.js"></script>
  
+ 
+ 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function () {
+          $("#sDate").datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+    $(function () {
+           $("#eDate").datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+    </script>
+ 	
+ 
 
 </head>
 
@@ -54,9 +68,9 @@
 				<div class="col-lg-12">
 					<h1 class="page-header">Flot</h1>
 					<h4>
-						기간 : <input type="date" id="sdate" value="2017-02-02"> ~
-						<input type="date" id="edate" value="2017-12-31">
+						기간 : <input type="date" name="sDate" id="sDate", value="2017-01-01"> ~	<input type="date" name="eDate" id="eDate" value="2017-12-31">
 						<button onclick="gridAll()">확인</button>
+						
 					</h4>
 					<br>
 				</div>
@@ -137,7 +151,9 @@
                			},
                			selection : {
                				mode : "x"
-               			}
+               			},
+               			colors : ["#FFB2F5"]
+               			
                		};
                		$.plot("#flot-line-chart-day", [ d ], options);
                	});
@@ -203,7 +219,8 @@
                			},
                			selection : {
                				mode : "x"
-               			}
+               			},
+               			colors : ["#FF0000", "#00FF00"]
                		};
                		var plot = $.plot("#flot-line-chart-home", [ d ], options);
 
@@ -243,7 +260,8 @@
                		var data = new Array(leng); // Array(Array(x,y))
 
                		for (var i = 0; i < leng; i++) {
-               			data[i] = [ keyArr[i], valArr[i].toString() ];
+               			data[i] = [keyArr[i], valArr[i].toString()];
+               		
                		}
 
                		$.plot("#flot-bar", [ data ], {
@@ -257,13 +275,22 @@
                			xaxis : {
                				mode : "categories",
                				tickLength : 0
-               			}
+               			},
+               			colors : ["#7ED2FF"]
                		});
 
                	});
                }
 
                
+               function getRandomColor() {
+            	    var letters = '0123456789ABCDEF';
+            	    var color = '#';
+            	    for (var i = 0; i < 6; i++ ) {
+            	        color += letters[Math.floor(Math.random() * 16)];
+            	    }
+            	    return color;
+            	}
                </script>
 
 
