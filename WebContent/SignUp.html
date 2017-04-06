@@ -53,10 +53,10 @@
 								   Your Error Message goes here
 							</div> <!-- End Error box -->
 			        		<form action="signupcheck" method="get"  >			        			
-						   		 <input type="text" placeholder="Name" class="input-field" name="name" required/>
-						   		 <input type="text" placeholder="USER ID" class="input-field" name="usrId" required/>
+						   		 <input type="text" placeholder="Name" class="input-field" id="name" name="name" required/>
+						   		 <input type="text" placeholder="USER ID" class="input-field" id="usrId" name="usrId" required/>
 						   		 <div class="" class="input-field">
-						   		 	<select class="form-control" name="usrGrade" style="width: 70%; margin-bottom: 5%; margin-left: 15%" required >
+						   		 	<select class="form-control" name="usrGrade" id="usrGrade" style="width: 70%; margin-bottom: 5%; margin-left: 15%" required >
 										<option value="defualt" name="defualt">직급을 선택해주세요</option>
 										<option value="JA" name="JA">JA</option>
 										<option value="A" name="A">A</option>
@@ -65,12 +65,12 @@
 										<option value="S" name="S">S</option>
 									</select>
 								</div>
-						   		 <input type="email" placeholder="E-mail"  class="input-field" name="usrEmail" required/> 
-						   		 <input type="tel" placeholder="Phone Number"  class="input-field" name="usrPhone" required/> 
-						   		 <input type="password"  placeholder="Password"  class="input-field"  name="usrPw" required/>  
-						   		 <input type="password"  placeholder="Confirm Password"  class="input-field"   required/>  
+						   		 <input type="email" placeholder="E-mail"  class="input-field" name="usrEmail" id="usrEmail" required/> 
+						   		 <input type="tel" placeholder="Phone Number"  class="input-field" name="usrPhone" id="usrPhone" required/> 
+						   		 <input type="password"  placeholder="Password"  class="input-field"  name="usrPw" id="usrPw" required/>  
+						   		 <input type="password"  placeholder="Confirm Password"  class="input-field" name="usrPw_a" id="usrPw_a" required/>  
 						   		 <label class="checkbox">
-        		                	<input type="checkbox" value="option1" required> 가입에 동의하시겠습니까?
+        		                	<input type="checkbox" value="option1" id="check" required> 가입에 동의하시겠습니까?
         		           		  </label>
 						   		 <button type="submit" class="btn btn-login">Sign Up</button> 
 							</form>	

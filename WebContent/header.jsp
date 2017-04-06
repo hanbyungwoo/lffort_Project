@@ -16,7 +16,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="jsp/main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/jsp/main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
 		</div>
 		<!-- /.navbar-header -->
 
@@ -198,6 +198,6 @@
 		<!-- /.navbar-top-links -->
 
 		
-		<jsp:include page="leftside.html" flush="false" />
+		<jsp:include page="leftside.jsp" flush="false" />
 
 		<!-- /.navbar-static-side --> </nav>

@@ -45,7 +45,7 @@ public class SignUpCheck extends HttpServlet {
 				out.println("</script>");
 				out.close();
 				
-				response.sendRedirect("SignUp.html");
+//				response.sendRedirect("SignUp.html");
 			}
 			//해당 usrId가 존재하지 않는 경우, 회원가입 가능
 			else {

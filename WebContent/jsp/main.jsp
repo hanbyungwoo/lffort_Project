@@ -1,6 +1,6 @@
 <%@page import="controller.SelectInfo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="utf-8"%>
 <%@page
 	import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -86,11 +86,11 @@
 										%>
 										${requestScope.work}
 									</div>
-									<div>ÁøÇàÇØ¾ßÇÒ ¾÷¹«</div>
+									<div>ì§„í–‰í•´ì•¼í•  ì—…ë¬´</div>
 								</div>
 							</div>
 						</div>
-						<a href="../DetailWork?page=1&usrid=${sessionScope.usrId}">
+						<a href="<%=url%>/DetailWork?page=1&usrid=${sessionScope.usrId}">
 							<div class="panel-footer">
 								<span class="pull-left">View Details</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -108,11 +108,11 @@
 								</div>
 								<div class="col-xs-9 text-right">
 									<div class="huge">New Task</div>
-									<div>ÀÏÁ¤ µî·Ï</div>
+									<div>ì¼ì • ë“±ë¡</div>
 								</div>
 							</div>
 						</div>
-						<a href="#">
+						<a href="<%=url%>/jsp/flot.jsp">
 							<div class="panel-footer">
 								<span class="pull-left">Register</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -130,7 +130,7 @@
 								</div>
 								<div class="col-xs-9 text-right">
 									<div class="huge">124</div>
-									<div>Åë°èÈ®ÀÎ</div>
+									<div>í†µê³„í™•ì¸</div>
 								</div>
 							</div>
 						</div>
@@ -152,7 +152,7 @@
 								</div>
 								<div class="col-xs-9 text-right">
 									<div class="huge">13</div>
-									<div>ÀÏÁ¤ °øÀ¯</div>
+									<div>ì¼ì • ê³µìœ </div>
 								</div>
 							</div>
 						</div>
@@ -171,7 +171,7 @@
 				<div class="col-lg-8">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i> ÀÏÁ¤ °ü¸®
+							<i class="fa fa-bar-chart-o fa-fw"></i> ì¼ì • ê´€ë¦¬
 
 
 						</div>
@@ -182,7 +182,7 @@
 								request.setAttribute("date", date);
 							%>
 
-							<div id="calendar"></div>
+							
 							<div id="calendar">
 								<script>input_data(${requestScope.date});</script>
 							</div>
@@ -221,7 +221,7 @@
 				<div class="col-lg-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bell fa-fw"></i> ·Ôµ¥ ¼Ò½Ä
+							<i class="fa fa-bell fa-fw"></i> ë¡¯ë° ì†Œì‹
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
