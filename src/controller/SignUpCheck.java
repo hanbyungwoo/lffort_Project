@@ -24,7 +24,7 @@ public class SignUpCheck extends HttpServlet {
 		String usrPw = request.getParameter("usrPw");
 		String usrName = request.getParameter("name");
 		//String photo = request.getParameter("usrId");
-		String photo = "photo";
+		String photo = "nouser.png";
 		String usrGrade = request.getParameter("usrGrade");
 		String usrEmail = request.getParameter("usrEmail");
 		String userPhone = request.getParameter("usrPhone");

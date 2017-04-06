@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="controller.Controller"%>
-<%@page import="java.util.TreeMap"%>
 
-<%@page import="java.util.Iterator"%>
 <%String url= request.getContextPath() + "/"; %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,15 +42,14 @@
 </head>
 
 <body>
+	
 	<div id="wrapper">
-
-		<jsp:include page="../header.jsp" flush="false" />
-
+		 <jsp:include page="../header.jsp" flush="false" />
 		<!-- 여기부터 그래프 시작 -->
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Flot</h1>
+					<h1 class="page-header">통계 조회</h1>
 					<h4>
 						기간 : <input type="date" id="sdate" value="2017-02-02"> ~
 						<input type="date" id="edate" value="2017-12-31">
@@ -78,7 +73,8 @@
                	ajaxCall1();
                	ajaxCall2();
                }
-
+               
+				
                function ajaxCall() {
                	keyArr = []; // key 초기화
                	valArr = []; // val 초기화
@@ -86,7 +82,7 @@
                		url : "<%=url%>charData",
                		data : {
                			command : "getPercent",
-               			usrId : "MANAGER",
+               			usrId : "<%=session.getAttribute("usrId")%>",
                			sDate : $("#sdate").val(),
                			eDate : $("#edate").val()
                		},
@@ -104,7 +100,7 @@
                			grid1(keyArr, valArr); // 차트그리기
                		}
                	})
-
+			
                }
                function grid1(keyArr, valArr) {
                	$(function() {
@@ -121,6 +117,7 @@
                			// /d[i] = [new Date(date).getTime() , valArr[i].toString()];
                			d[i] = [ date, valArr[i].toString() ];
                		}
+               		
                		// 솔트정렬
                		d.sort(function(a1, a2) {
                			var idx = 0; // key
@@ -139,7 +136,8 @@
                			},
                			selection : {
                				mode : "x"
-               			}
+               			},
+               			colors :["#3DB7CC"]
                		};
                		$.plot("#flot-line-chart-day", [ d ], options);
                	});
@@ -152,7 +150,7 @@
                		url : "<%=url%>charData",
                		data : {
                			command : "getDayStat",
-               			usrId : "MANAGER",
+               			usrId : "<%=session.getAttribute("usrId")%>",
                			sDate : $("#sdate").val(),
                			eDate : $("#edate").val()
                		},
@@ -184,9 +182,10 @@
 
                			dateArr = date.split("-");
                			date = dateArr[1] + "," + dateArr[2] + "," + dateArr[0];
-
+						console.log(valArr[i].toString());
                			d[i] = [ date, valArr[i].toString() ];
                		}
+               	
                		// 솔트정렬
                		d.sort(function(a1, a2) {
                			var idx = 0; // key
@@ -203,9 +202,13 @@
                				timeformat : "%y/%m/%d",
                				tickLength : 5
                			},
+               			yaxis : {
+               				min:0, max: 20
+               			},
                			selection : {
                				mode : "x"
-               			}
+               			},
+               			colors :["#F15F5F"]
                		};
                		var plot = $.plot("#flot-line-chart-home", [ d ], options);
 
@@ -219,7 +222,7 @@
                		url : "<%=url%>charData",
                		data : {
                			command : "getWokrStat",
-               			usrId : "MANAGER",
+               			usrId : "<%=session.getAttribute("usrId")%>",
                			sDate : $("#sdate").val(),
                			eDate : $("#edate").val()
                		},
@@ -259,7 +262,8 @@
                			xaxis : {
                				mode : "categories",
                				tickLength : 0
-               			}
+               			},
+               			colors :["#F29661"]
                		});
 
                	});
@@ -350,6 +354,7 @@
 					<!-- /.panel -->
 				</div>
 				<!-- /.col-lg-6 -->
+				
 			</div>
 			<!-- /.row -->
 		</div>

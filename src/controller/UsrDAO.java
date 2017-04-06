@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.xml.ws.Response;
+
 import model.domain.UsrDTO;
 import util.DBUtil;
 
@@ -19,7 +21,6 @@ public class UsrDAO {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement("insert into USR values(?,?,?,?,?,?,?)");
 
-			pstmt.setString(1, usr.getUsrId());
 			pstmt.setString(2, usr.getUsrPw());
 			pstmt.setString(3, usr.getUsrName());
 			pstmt.setString(4, usr.getPhoto());
@@ -120,12 +121,13 @@ public class UsrDAO {
 		boolean result = false;
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("delete from USR where USRID=?");
+			pstmt = con.prepareStatement("delete from USR where USRID=? ");
 			pstmt.setString(1, usrId);
 
 			int i = pstmt.executeUpdate();// *
 			if (i == 1) {
 				result = true;
+				
 			}
 		} finally {
 			DBUtil.close(con, pstmt);

@@ -20,16 +20,10 @@
 							My work<span class="fa arrow"></span></a></li>
 					<li><a href="<%=request.getContextPath()%>/jsp/RegisterSchedule.jsp"><i
 							class="fa fa-edit fa-fw"></i> Register Todo<span class="fa arrow"></span></a></li>
-					<li><a href="#"><i class="fa fa-wrench fa-fw"></i>
-							Share Todo <span class="fa arrow"></span></a>
+					<li><a href="<%=request.getContextPath()%>/jsp/card.jsp"><i class="fa fa-wrench fa-fw"></i>
+							Share Todo<span class="fa arrow"></span></a>
 					<li><a href="<%=request.getContextPath()%>/jsp/FAQ.jsp"><i class="fa fa-sitemap fa-fw"></i>
 							FAQ<span class="fa arrow"></span></a>
-					<li><a href="#"><i class="fa fa-files-o fa-fw"></i> Sample
-							Pages<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="blank.html">Blank Page</a></li>
-							<li><a href="login.html">Login Page</a></li>
-						</ul> <!-- /.nav-second-level --></li>
 				</ul>
 			</div>
 			<!-- /.sidebar-collapse -->

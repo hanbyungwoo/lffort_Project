@@ -119,4 +119,43 @@ public class statDAO {
 		}
 		return map;
 	}
+
+	// 퇴근
+	public static ArrayList<String> selectAllTodo(String sDate, String eDate) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		ArrayList<String> list = null;
+
+		try {
+			conn = DBUtil.getConnection();
+			pstmt = conn.prepareStatement(bundle.getString("selectAllTodo"));
+			pstmt.setString(1, sDate);
+			pstmt.setString(2, eDate);
+			list = new ArrayList<String>();
+
+			set = pstmt.executeQuery();
+
+			while (set.next()) {
+				list.add(set.getString(1) 
+						+ "/" + set.getString(2)
+						+ "/" + set.getString(3)
+						+ "/" + set.getString(4)
+						+ "/" + set.getString(5)
+						+ "/" + set.getString(6)
+						+ "/" + set.getString(7));
+				
+				/*System.out.println(set.getString(1) 
+						+ "-" + set.getString(2)
+						+ "-" + set.getString(3)
+						+ "-" + set.getString(4)
+						+ "-" + set.getString(5)
+						+ "-" + set.getString(6)
+						+ "-" + set.getString(7));*/
+			}
+		} finally {
+			DBUtil.close(conn, pstmt);
+		}
+		return list;
+	}
 }

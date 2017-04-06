@@ -82,10 +82,19 @@ $(document).ready(function(){
 			<%String url=request.getContextPath()+"/"; %>
 			<%
 				ArrayList<Todo> todos = (ArrayList<Todo>)request.getAttribute("todos");
-				int total = todos.get(0).getTotal();
+				
 			%>
-			총 <%=total%> 권
+			
 			<!-- /.row -->
+			
+		
+	
+	
+
+<c:choose>
+			<c:when test="${not empty todos}">
+			<%int total = todos.get(0).getTotal(); %>			
+			총 <%=total%> 권
 			<div class="col-md-12">
 				<table class="table">
 					<thead>
@@ -99,10 +108,13 @@ $(document).ready(function(){
 							<th>마감일</th>
 						</tr>
 					</thead>
+
 					<tbody>
 					<%
 						int num=1;
 					%>
+
+				
 					<c:if test="${requestScope.page != 1}">
 						<%
 							num = 10*Integer.parseInt((String)request.getAttribute("page"))-9;
@@ -112,7 +124,7 @@ $(document).ready(function(){
 							<tr>
 								<td><%=num++%></td>
 								<td>${data.todoType}</td>
-								<td>${data.desc}</td>
+								<td><a href="ShowDetail?num=<%=num-1%>&usrId=${sessionScope.usrId}">${data.desc}</a></td>
 								<td>${data.percent}</td>
 								<td><c:choose>
 										<c:when test="${data.flag==1}">
@@ -154,6 +166,15 @@ $(document).ready(function(){
 				
 				</c:if>
 			</div>
+			</c:when>
+			<c:otherwise>
+				<h3 align="center">등록된 일정이 없습니다.</h3>
+				<br><br>
+				<center>
+					<button class="btn btn-success" onclick="location.href='../jsp/RegisterSchedule.jsp';">일정 등록하러 가기</button>
+				</center>
+			</c:otherwise>
+</c:choose>
 		</div>
 	</div>
 </body>

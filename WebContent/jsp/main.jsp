@@ -1,4 +1,4 @@
-<%@page import="controller.SelectInfo"%>
+<%@page import="controller.SelectInfo, java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@page import="model.domain.NewEvent, util.Crawling, controller.DateInformation"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -77,7 +77,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Dashboard -${sessionScope.usrId}-</h1>
+					<h1 class="page-header">Dashboard</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -141,7 +141,7 @@
 									<i class="fa fa-shopping-cart fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">124</div>
+									<div class="huge">Chart Data</div>
 									<div>통계확인</div>
 								</div>
 							</div>
@@ -163,12 +163,12 @@
 									<i class="fa fa-support fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">13</div>
+									<div class="huge">Share TODO</div>
 									<div>일정 공유</div>
 								</div>
 							</div>
 						</div>
-						<a href="#">
+						<a href="<%=request.getContextPath()%>/jsp/card.jsp">
 							<div class="panel-footer">
 								<span class="pull-left">View Details</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -211,59 +211,59 @@
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<!-- <div class="list-group">
+							<div class="list-group">
                             
-                            	<%//	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
-			//	event = Crawling.NewEvent();
-			//	request.setAttribute("list", event);%>
+                            	<%	ArrayList<NewEvent> event = new ArrayList<NewEvent>();
+										event = Crawling.NewEvent();
+										request.setAttribute("list", event);%>
                                 <c:forEach items="${requestScope.list}" var="data">
 									 <a href="${data.url}" class="list-group-item">
 	                                    <i class="fa fa-comment fa-fw"></i> ${data.name}
                                 	</a>
 								</c:forEach>
 								
-                            </div> -->
+                            </div>
 							<!-- /.list-group -->
-							<a
-								href="http://www.enewstoday.co.kr/news/articleView.html?idxno=1038789"
-								class="list-group-item"> <i class="fa fa-comment fa-fw"></i>
-								'벚꽃시즌' 맞은 롯데월드, 다양한 혜택으로 봄나들이객 유혹
-							</a>
-							<a
-								href="http://news.tf.co.kr/read/economy/1685073.htm"
-								class="list-group-item"> <i class="fa fa-envelope fa-fw"></i>
-								롯데월드타워, 연간 1억명 유혹할 매력 포인트 6
-							</a>
-							<a
-								href="http://m.post.naver.com/viewer/postView.nhn?volumeNo=6449022&memberNo=9028903&vType=VERTICAL"
-								class="list-group-item"> <i class="fa fa-tasks fa-fw"></i>
-								롯데 그룹 2017년 상반기 신입/경력 채용 시작!
-							</a>  
-							<a
-								href="http://www.upkorea.net/news/articleView.html?idxno=109982"
-								class="list-group-item"> <i class="fa fa-upload fa-fw"></i>
-								롯데와 석촌호수 벚꽃축제 2017
-							</a>  
-							<a
-								href="http://blog.naver.com/whwls9639/220974150062"
-								class="list-group-item"> <i class="fa fa-bolt fa-fw"></i>
-								월드타워 불꽃놀이 장관을 이루다!
-							</a>   
-							<a
-								href="http://www.kukinews.com/news/article.html?no=444650"
-								class="list-group-item"> <i class="fa fa-warning fa-fw"></i>
-								롯데월드타워, 그랜드 오픈 첫날…전국에서 온 관광객으로 북새통
-							</a>
-							<a
-								href="http://www.inews24.com/php/news_view.php?g_serial=1015187&g_menu=020200&rrf=nv"
-								class="list-group-item"> <i class="fa fa-shopping-cart fa-fw"></i>
-								롯데정보통신, 모바일 개발 플랫폼 '램프' 출시
-							</a>
-							<a
-								href="http://view.asiae.co.kr/news/view.htm?idxno=2017040609565448282"
-								class="list-group-item"> <i class="fa fa-money fa-fw"></i>
-								롯데제과, 창립 50주년 기념 '빼빼로 50만 갑' 기부
-							</a>
+<!-- 							<a -->
+<!-- 								href="http://www.enewstoday.co.kr/news/articleView.html?idxno=1038789" -->
+<!-- 								class="list-group-item"> <i class="fa fa-comment fa-fw"></i> -->
+<!-- 								'벚꽃시즌' 맞은 롯데월드, 다양한 혜택으로 봄나들이객 유혹 -->
+<!-- 							</a> -->
+<!-- 							<a -->
+<!-- 								href="http://news.tf.co.kr/read/economy/1685073.htm" -->
+<!-- 								class="list-group-item"> <i class="fa fa-envelope fa-fw"></i> -->
+<!-- 								롯데월드타워, 연간 1억명 유혹할 매력 포인트 6 -->
+<!-- 							</a> -->
+<!-- 							<a -->
+<!-- 								href="http://m.post.naver.com/viewer/postView.nhn?volumeNo=6449022&memberNo=9028903&vType=VERTICAL" -->
+<!-- 								class="list-group-item"> <i class="fa fa-tasks fa-fw"></i> -->
+<!-- 								롯데 그룹 2017년 상반기 신입/경력 채용 시작! -->
+<!-- 							</a>   -->
+<!-- 							<a -->
+<!-- 								href="http://www.upkorea.net/news/articleView.html?idxno=109982" -->
+<!-- 								class="list-group-item"> <i class="fa fa-upload fa-fw"></i> -->
+<!-- 								롯데와 석촌호수 벚꽃축제 2017 -->
+<!-- 							</a>   -->
+<!-- 							<a -->
+<!-- 								href="http://blog.naver.com/whwls9639/220974150062" -->
+<!-- 								class="list-group-item"> <i class="fa fa-bolt fa-fw"></i> -->
+<!-- 								월드타워 불꽃놀이 장관을 이루다! -->
+<!-- 							</a>    -->
+<!-- 							<a -->
+<!-- 								href="http://www.kukinews.com/news/article.html?no=444650" -->
+<!-- 								class="list-group-item"> <i class="fa fa-warning fa-fw"></i> -->
+<!-- 								롯데월드타워, 그랜드 오픈 첫날…전국에서 온 관광객으로 북새통 -->
+<!-- 							</a> -->
+<!-- 							<a -->
+<!-- 								href="http://www.inews24.com/php/news_view.php?g_serial=1015187&g_menu=020200&rrf=nv" -->
+<!-- 								class="list-group-item"> <i class="fa fa-shopping-cart fa-fw"></i> -->
+<!-- 								롯데정보통신, 모바일 개발 플랫폼 '램프' 출시 -->
+<!-- 							</a> -->
+<!-- 							<a -->
+<!-- 								href="http://view.asiae.co.kr/news/view.htm?idxno=2017040609565448282" -->
+<!-- 								class="list-group-item"> <i class="fa fa-money fa-fw"></i> -->
+<!-- 								롯데제과, 창립 50주년 기념 '빼빼로 50만 갑' 기부 -->
+<!-- 							</a> -->
 							
 							<br>
 							<a href="http://www.lotte.co.kr/04_promote/bbs_list_news.jsp"

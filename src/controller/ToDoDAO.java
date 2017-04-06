@@ -112,14 +112,17 @@ public class ToDoDAO {
    }
 
    // delete
-   public static boolean delete(String todoId) throws SQLException {
+   public static boolean del(String usrId, String todoType, String desc, int percent) throws SQLException {
       Connection con = null;
       PreparedStatement pstmt = null;
       boolean result = false;
       try {
          con = DBUtil.getConnection();
-         pstmt = con.prepareStatement("delete from todo where todoID=?");
-         pstmt.setString(1, todoId);
+         pstmt = con.prepareStatement("delete from TODO where USRID=? and TODOTYPE=? and TODODESC=? and TODOCHECK=?");
+         pstmt.setString(1, usrId);
+         pstmt.setString(2, todoType);
+         pstmt.setString(3, desc);
+         pstmt.setInt(4, percent);
 
          int i = pstmt.executeUpdate();// *
          if (i == 1) {

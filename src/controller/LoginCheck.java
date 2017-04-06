@@ -23,7 +23,9 @@ import util.AES256;
 public class LoginCheck extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       System.out.println("출력되라");
+      System.out.println(request+":::");
 	  String usrId = request.getParameter("id");
+	  
       String usrPw = request.getParameter("pw");
       System.out.println("안녕");
       AES256 a = new AES256(AES256.key);
@@ -39,6 +41,14 @@ public class LoginCheck extends HttpServlet {
          UsrDTO d = UsrDAO.selectOne(usrId);
          System.out.println("콘솔출력");
          //usr 정보가 일치한다면
+         System.out.println("UsrDTO : " + d);
+         if(d==null) {
+        	 PrintWriter out = response.getWriter();
+        	 out.println("<script>alert('없는사용자입니다.');</script>");
+        	 response.sendRedirect("Login.html");
+        	 return;
+         }
+         
          if(d.getUsrId().equals(usrId) && d.getUsrPw().equals(new_pw)) {
          //세션 생성: client당 1씩 생성, 관리는 서버가 함
         	System.out.println("sdfsdfsdfsdf");

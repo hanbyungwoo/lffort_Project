@@ -46,12 +46,41 @@
     <servlet-name>DetailWork</servlet-name>
     <url-pattern>/DetailWork</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>c</servlet-name>
     <servlet-class>controller.Controller</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>c</servlet-name>
     <url-pattern>/charData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>ChangeProfile</servlet-name>
+    <servlet-class>controller.ChangeProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeProfile</servlet-name>
+    <url-pattern>/UserChange</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Delete</display-name>
+    <servlet-name>Delete</servlet-name>
+    <servlet-class>controller.Delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowDetail</display-name>
+    <servlet-name>ShowDetail</servlet-name>
+    <servlet-class>controller.ShowDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowDetail</servlet-name>
+    <url-pattern>/ShowDetail</url-pattern>
   </servlet-mapping>
 </web-app>
