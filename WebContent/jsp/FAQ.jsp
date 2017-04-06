@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-   pageEncoding="EUC-KR"%>
-<%@page
-   import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+   pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,16 +26,6 @@
 <script src="../js/bootstrap-datepicker.js"></script>
 
 <title>LFFORT</title>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#startDate').datepicker({
-            format: "yyyy/mm/dd"
-        });
-        $('#endDate').datepicker({
-            format: "yyyy/mm/dd"
-        });
-    });
-</script>
 </head>
 
 <!-- Bootstrap Core CSS -->
@@ -64,21 +50,10 @@
    
    
    
-<!--  <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
-<!--  <link href="../css/dashboard.css" rel="stylesheet"> -->
- <!-- Bootstrap theme -->
-<!--  <link href="../css/bootstrap-theme.min.css" rel="stylesheet"> -->
  <link href="../css/faq.css" rel="stylesheet">
  <script src="../js/jquery-3.1.1.min.js"> </script>
- <!-- Custom styles for this template -->
-<!--  <link href="../css/theme.css" rel="stylesheet"> -->
-<!--  <link href="../css/free_board.css" rel="stylesheet"> -->
- <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
- <!--[if lt IE 9]><script src="/dist/js/ie8-responsive-file-warning.js"></script><![endif]-->
  <script src="../js/ie-emulation-modes-warning.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!--  <script src="../js/bootstrap.min.js"></script> -->
- <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
  <script src="../js/ie10-viewport-bug-workaround.js"></script>
  
  
@@ -107,24 +82,24 @@
           
             <ul>
               <li class="article">
-                <p class="q"><a href="#a1" class="trigger">LFFORT´Â ¹«¾ùÀ» ÇÏ´Â »çÀÌÆ®ÀÎ°¡¿ä?</a></p>
-                <p class="a">·Ôµ¥ÀÎµéÀÌ ¾÷¹«¸¦ È¿À²ÀûÀ¸·Î °ü¸®ÇÒ ¼ö ÀÖµµ·Ï ¸¸µç »çÀÌÆ®ÀÔ´Ï´Ù.</p>
+                <p class="q"><a href="#a1" class="trigger">LFFORTëŠ” ë¬´ì—‡ì„ í•˜ëŠ” ì‚¬ì´íŠ¸ì¸ê°€ìš”?</a></p>
+                <p class="a">ë¡¯ë°ì¸ë“¤ì´ ì—…ë¬´ë¥¼ íš¨ìœ¨ì ìœ¼ë¡œ ê´€ë¦¬í•  ìˆ˜ ìžˆë„ë¡ ë§Œë“  ì‚¬ì´íŠ¸ìž…ë‹ˆë‹¤.</p>
               </li>
             </ul>
             <ul>
               <li class="article">
-                <p class="q"><a href="#a1" class="trigger">¹«½¼ ±â´ÉÀ» °¡Áö°í ÀÖ³ª¿ä?</a></p>
-                <p class="a">ÀÏÁ¤°øÀ¯ ¹× °ü¸®¿Í ³»°¡ ÁøÇàÇÑ ¾÷¹«¿¡ ´ëÇØ ºÐ¼®À» ÇØÁÖ¹Ç·Î ¾÷¹«ÀÇ È¿À²¼ºÀ» Áõ°¡½ÃÅµ´Ï´Ù.</p>
+                <p class="q"><a href="#a1" class="trigger">ë¬´ìŠ¨ ê¸°ëŠ¥ì„ ê°€ì§€ê³  ìžˆë‚˜ìš”?</a></p>
+                <p class="a">ì¼ì •ê³µìœ  ë° ê´€ë¦¬ì™€ ë‚´ê°€ ì§„í–‰í•œ ì—…ë¬´ì— ëŒ€í•´ ë¶„ì„ì„ í•´ì£¼ë¯€ë¡œ ì—…ë¬´ì˜ íš¨ìœ¨ì„±ì„ ì¦ê°€ì‹œí‚µë‹ˆë‹¤.</p>
               </li>
             </ul>
             <ul>
               <li class="article">
-                <p class="q"><a href="#a1" class="trigger">LFFORTÂ¯</a></p>
-                <p class="a">Á¤¸» °£ÆíÇÏ°í ÁÁ¾Æ¿ä!</p>
+                <p class="q"><a href="#a1" class="trigger">LFFORTì§±</a></p>
+                <p class="a">ì •ë§ ê°„íŽ¸í•˜ê³  ì¢‹ì•„ìš”!</p>
               </li>
               <li class="article">
-                <p class="q"><a href="#a1" class="trigger">¸¸µç»ç¶÷Àº ´©±¸ÀÎ°¡¿ä?</a></p>
-                <p class="a">¹ÚÇü¼ö! ±Çµµ¿µ! ÇÑº´¿ì! ¼ÒÇö¿í!</p>
+                <p class="q"><a href="#a1" class="trigger">ë§Œë“ ì‚¬ëžŒì€ ëˆ„êµ¬ì¸ê°€ìš”?</a></p>
+                <p class="a">ë°•í˜•ìˆ˜! ê¶Œë„ì˜! í•œë³‘ìš°! ì†Œí˜„ìš±!</p>
               </li>
             </ul>
           

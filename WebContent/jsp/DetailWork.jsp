@@ -79,7 +79,6 @@ $(document).ready(function(){
 				<!-- /.col-lg-12 -->
 
 			</div>
-			--------------------- > > > >> > > >${sessionScope.usrId} <br> <br>
 			<%String url=request.getContextPath()+"/"; %>
 			<%
 				ArrayList<Todo> todos = (ArrayList<Todo>)request.getAttribute("todos");
@@ -101,12 +100,14 @@ $(document).ready(function(){
 						</tr>
 					</thead>
 					<tbody>
-						<%
+					<%
 						int num=1;
-					
-						//ArrayList<Todo> list = SelectInfo.SelectTodo((String)session.getAttribute("usrId"));
-						//ArrayList<Todo> list = request.setAttribute("todos", list);
 					%>
+					<c:if test="${requestScope.page != 1}">
+						<%
+							num = 10*Integer.parseInt((String)request.getAttribute("page"))-9;
+						%>
+					</c:if>
 						<c:forEach items="${requestScope.todos}" var="data">
 							<tr>
 								<td><%=num++%></td>
@@ -138,18 +139,16 @@ $(document).ready(function(){
 					String id = (String)session.getAttribute("usrId");
 					
 					int pageNum = (int)Math.ceil(total/10)+1;
-					out.println(":::");
-					out.println(cur_page);
 				%>
-				<c:if test="${requestScope.page}!=1">
-					<a href="<%=url%>DetailWork?page='<%=cur_page-1%>'&usrid=<%=id%>">이전</a>
+				<c:if test="${requestScope.page != 1}">
+					<a href="<%=url%>DetailWork?page=<%=cur_page-1%>&usrid=<%=id%>">이전</a>
 				</c:if>
 				<a href="<%=url%>DetailWork?page=1&usrid=<%=id%>"> 1</a>
 				<a href="<%=url%>DetailWork?page=2&usrid=<%=id%>"> 2 </a>
 				<a href="<%=url%>DetailWork?page=3&usrid=<%=id%>"> 3 </a>
 				<a href="<%=url%>DetailWork?page=4&usrid=<%=id%>"> 4 </a>
 				<a href="<%=url%>DetailWork?page=5&usrid=<%=id%>"> 5 </a>
-				<c:if test="{page != <%=pageNum%>}">
+				<c:if test="${requestScope.page != 5}">
 					<a href="<%=url%>DetailWork?page=<%=cur_page+1%>&usrid=<%=id%>">다음</a>
 				</c:if>
 				

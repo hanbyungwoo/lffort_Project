@@ -53,7 +53,7 @@ public class SelectInfo {
 		
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("SELECT * FROM( SELECT todo.*, count(*) over() as totcnt, ROWNUM AS rn from todo where usrid=? ) todo where rn BETWEEN ? AND ?");
+			pstmt = con.prepareStatement("SELECT * FROM( SELECT todo.*, count(*) over() as totcnt, ROWNUM AS rn from todo where usrid=?) todo where rn BETWEEN ? AND ?");
 //			pstmt = con.prepareStatement("select usrid, todotype, todosdate, todoedate, tododesc, todoflag, todocheck, rownum from todo where usrid=?");
 			pstmt.setString(1, id);
 			pstmt.setInt(2, pre);

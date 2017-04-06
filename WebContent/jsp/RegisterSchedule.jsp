@@ -16,36 +16,24 @@
 <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <script   src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
 
-<!-- jQuery -->
-<script   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
+ <!-- jQuery -->
+<!-- <script   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>  -->
 
 <!-- Metis Menu Plugin JavaScript -->
 <script   src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+
 <script src="https://fengyuanchen.github.io/js/common.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.min.js"></script> 
 
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-datepicker.js"></script>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.min.css"/>
+<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 <title>LFFORT</title>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#startDate').datepicker({
-            format: "yyyy/mm/dd"
-        });
-        $('#endDate').datepicker({
-            format: "yyyy/mm/dd"
-        });
-    });
-</script>
 </head>
 
 <!-- Bootstrap Core CSS -->
@@ -100,8 +88,20 @@
                      <form action="<%=url%>TodoController">
                   <div class="panel-body">
                      <div class="hero-unit">
-                        <b>일정 시작 시간</b> <input type="text" placeholder="시작 시간을 입력해주세요."   id="startDate" name="startDate" class="form-control" />
-                        <b>일정 종료 시간</b> <input type="text" placeholder="종료 시간을 입력해주세요." id="endDate" name="endDate" class="form-control" />
+                        <b>일정 시작 시간</b>
+                  <div class='input-group date' id='startDate'>
+                           <input type="text" placeholder="시작 시간을 입력해주세요." id="startDate" name="startDate" class="form-control" />
+                           <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                        </div>
+                        <b>일정 종료 시간</b>
+                        <div class='input-group date' id='endDate'>
+                           <input type="text" placeholder="종료 시간을 입력해주세요." id="endDate" name="endDate" class="form-control" />
+                           <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                        </div>
                      </div>
                   <div class="form-group">
                            <label for="sel1">업무 종류</label>
@@ -151,6 +151,17 @@
       </div>
       <!-- /#wrapper -->
 
+<script type="text/javascript">
+   $(document).ready(function () { 
+     $('#startDate').datetimepicker({
+        Format: 'yyyy-MM-dd HH:mm'
+        
+        });  
+        $('#endDate').datetimepicker({
+           Format: 'yyyy-MM-dd HH:mm'
+        }); 
+ }); 
+</script>
 
       
 </body>

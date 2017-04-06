@@ -29,6 +29,46 @@
     <![endif]-->
     
      <script src="js/custom.modernizr.js" type="text/javascript" ></script>
+     <SCRIPT>
+		function checkValid() {
+		    var f = window.document.writeForm;
+				
+			if ( f.name.value == "") {
+			    alert( "이름을 입력해주세요" );
+				return false;
+		    }
+			if ( f.usrId.value == "" ) {
+				alert( "아이디를 입력해주세요." );
+				return false;
+			}
+			if ( f.usrGrade.value == "" ) {
+				alert( "직급을 선택해주세요." );
+				return false;
+			}
+			if ( f.usrEmail.value == "" ) {
+		        alert( "이메일을 입력해 주세요" );
+		        return false;
+		    }
+			if ( f.usrPhone.value == "" ) {
+		        alert( "핸드폰 번호를 입력해 주세요" );
+		        return false;
+		    }
+			if ( f.usrPw.value == "" ) {
+		        alert( "비밀번호를 입력해 주세요" );
+		        return false;
+		    }
+			if ( f.usrPw_a.value == "" ) {
+		        alert( "다시 비밀번호를 입력해 주세요" );
+		        return false;
+		    }
+			if(f.usrPw.value != f.usrPw_a.value) {
+				alert( "두 개의 비밀번호가 일치하지 않습니다." );
+		        return false;
+			}
+		    return true;
+		}
+		
+		</SCRIPT>
    
   </head>
     <body>
@@ -52,7 +92,7 @@
 								  <h4>Error!</h4>
 								   Your Error Message goes here
 							</div> <!-- End Error box -->
-			        		<form action="signupcheck" method="get"  >			        			
+			        		<form action="signupcheck" method="get"  name="writeForm" onSubmit='return checkValid()'>			        			
 						   		 <input type="text" placeholder="Name" class="input-field" id="name" name="name" required/>
 						   		 <input type="text" placeholder="USER ID" class="input-field" id="usrId" name="usrId" required/>
 						   		 <div class="" class="input-field">

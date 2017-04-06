@@ -1,8 +1,6 @@
 <%@page import="controller.SelectInfo"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@page
-	import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page import="model.domain.NewEvent, java.util.ArrayList, util.Crawling, controller.DateInformation"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,9 +43,23 @@
 <link	href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css"	rel="stylesheet">
 <!-- Custom Fonts -->
 <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-
+<style>
+	.list-group-items:first-child {
+	    border-top-left-radius: 4px;
+	    border-top-right-radius: 4px;
+	}
+	a.list-group-items, button.list-group-items {
+	    color: #555;
+	}
+	.list-group-items {
+	    position: relative;
+	    padding: 10px 15px;
+	    display : block;
+	    margin-bottom: -1px;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	}
+</style>
 <%
 	String url = application.getContextPath() + "/";
 %>
@@ -112,7 +124,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="<%=url%>/jsp/flot.jsp">
+						<a href="<%=url%>jsp/RegisterSchedule.jsp">
 							<div class="panel-footer">
 								<span class="pull-left">Register</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -134,7 +146,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="#">
+						<a href="<%=url%>jsp/flot.jsp">
 							<div class="panel-footer">
 								<span class="pull-left">View Details</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -190,38 +202,12 @@
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<!-- /.panel -->
 				</div>
 				<!-- /.col-lg-8 -->
 				<div class="col-lg-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bell fa-fw"></i> 롯데 소식
+							<i class="fa fa-bell fa-fw"></i> <font color="red">롯데</font> 소식
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
@@ -238,130 +224,136 @@
 								
                             </div> -->
 							<!-- /.list-group -->
+							<a
+								href="http://www.enewstoday.co.kr/news/articleView.html?idxno=1038789"
+								class="list-group-item"> <i class="fa fa-comment fa-fw"></i>
+								'벚꽃시즌' 맞은 롯데월드, 다양한 혜택으로 봄나들이객 유혹
+							</a>
+							<a
+								href="http://news.tf.co.kr/read/economy/1685073.htm"
+								class="list-group-item"> <i class="fa fa-envelope fa-fw"></i>
+								롯데월드타워, 연간 1억명 유혹할 매력 포인트 6
+							</a>
+							<a
+								href="http://m.post.naver.com/viewer/postView.nhn?volumeNo=6449022&memberNo=9028903&vType=VERTICAL"
+								class="list-group-item"> <i class="fa fa-tasks fa-fw"></i>
+								롯데 그룹 2017년 상반기 신입/경력 채용 시작!
+							</a>  
+							<a
+								href="http://www.upkorea.net/news/articleView.html?idxno=109982"
+								class="list-group-item"> <i class="fa fa-upload fa-fw"></i>
+								롯데와 석촌호수 벚꽃축제 2017
+							</a>  
+							<a
+								href="http://blog.naver.com/whwls9639/220974150062"
+								class="list-group-item"> <i class="fa fa-bolt fa-fw"></i>
+								월드타워 불꽃놀이 장관을 이루다!
+							</a>   
+							<a
+								href="http://www.kukinews.com/news/article.html?no=444650"
+								class="list-group-item"> <i class="fa fa-warning fa-fw"></i>
+								롯데월드타워, 그랜드 오픈 첫날…전국에서 온 관광객으로 북새통
+							</a>
+							<a
+								href="http://www.inews24.com/php/news_view.php?g_serial=1015187&g_menu=020200&rrf=nv"
+								class="list-group-item"> <i class="fa fa-shopping-cart fa-fw"></i>
+								롯데정보통신, 모바일 개발 플랫폼 '램프' 출시
+							</a>
+							<a
+								href="http://view.asiae.co.kr/news/view.htm?idxno=2017040609565448282"
+								class="list-group-item"> <i class="fa fa-money fa-fw"></i>
+								롯데제과, 창립 50주년 기념 '빼빼로 50만 갑' 기부
+							</a>
+							
+							<br>
 							<a href="http://www.lotte.co.kr/04_promote/bbs_list_news.jsp"
 								class="btn btn-default btn-block">View All Alerts</a>
 						</div>
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->
+					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
-						</div>
-						<div class="panel-body">
-							<div id="morris-donut-chart"></div>
-							<a href="#" class="btn btn-default btn-block">View Details</a>
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-					<div class="chat-panel panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-comments fa-fw"></i> Chat
-							<div class="btn-group pull-right">
-								<button type="button"
-									class="btn btn-default btn-xs dropdown-toggle"
-									data-toggle="dropdown">
-									<i class="fa fa-chevron-down"></i>
-								</button>
-								<ul class="dropdown-menu slidedown">
-									<li><a href="#"> <i class="fa fa-refresh fa-fw"></i>
-											Refresh
-									</a></li>
-									<li><a href="#"> <i class="fa fa-check-circle fa-fw"></i>
-											Available
-									</a></li>
-									<li><a href="#"> <i class="fa fa-times fa-fw"></i>
-											Busy
-									</a></li>
-									<li><a href="#"> <i class="fa fa-clock-o fa-fw"></i>
-											Away
-									</a></li>
-									<li class="divider"></li>
-									<li><a href="#"> <i class="fa fa-sign-out fa-fw"></i>
-											Sign Out
-									</a></li>
-								</ul>
-							</div>
+							<i class="fa fa-comments fa-fw"></i> <font color="red">LOTTE</font> Group
+							
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<ul class="chat">
-								<li class="left clearfix"><span class="chat-img pull-left">
-										<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
-										class="img-circle" />
-								</span>
-									<div class="chat-body clearfix">
-										<div class="header">
-											<strong class="primary-font">Jack Sparrow</strong> <small
-												class="pull-right text-muted"> <i
-												class="fa fa-clock-o fa-fw"></i> 12 mins ago
-											</small>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Curabitur bibendum ornare dolor, quis ullamcorper
-											ligula sodales.</p>
-									</div></li>
-								<li class="right clearfix"><span
-									class="chat-img pull-right"> <img
-										src="http://placehold.it/50/FA6F57/fff" alt="User Avatar"
-										class="img-circle" />
-								</span>
-									<div class="chat-body clearfix">
-										<div class="header">
-											<small class=" text-muted"> <i
-												class="fa fa-clock-o fa-fw"></i> 13 mins ago
-											</small> <strong class="pull-right primary-font">Bhaumik
-												Patel</strong>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Curabitur bibendum ornare dolor, quis ullamcorper
-											ligula sodales.</p>
-									</div></li>
-								<li class="left clearfix"><span class="chat-img pull-left">
-										<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
-										class="img-circle" />
-								</span>
-									<div class="chat-body clearfix">
-										<div class="header">
-											<strong class="primary-font">Jack Sparrow</strong> <small
-												class="pull-right text-muted"> <i
-												class="fa fa-clock-o fa-fw"></i> 14 mins ago
-											</small>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Curabitur bibendum ornare dolor, quis ullamcorper
-											ligula sodales.</p>
-									</div></li>
-								<li class="right clearfix"><span
-									class="chat-img pull-right"> <img
-										src="http://placehold.it/50/FA6F57/fff" alt="User Avatar"
-										class="img-circle" />
-								</span>
-									<div class="chat-body clearfix">
-										<div class="header">
-											<small class=" text-muted"> <i
-												class="fa fa-clock-o fa-fw"></i> 15 mins ago
-											</small> <strong class="pull-right primary-font">Bhaumik
-												Patel</strong>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit. Curabitur bibendum ornare dolor, quis ullamcorper
-											ligula sodales.</p>
-									</div></li>
-							</ul>
-						</div>
-						<!-- /.panel-body -->
-						<div class="panel-footer">
-							<div class="input-group">
-								<input id="btn-input" type="text" class="form-control input-sm"
-									placeholder="Type your message here..." /> <span
-									class="input-group-btn">
-									<button class="btn btn-warning btn-sm" id="btn-chat">
-										Send</button>
-								</span>
+							<font color="red">LOTTE</font> Group Menu
+							<br><br>
+							<div style="float: left; width: 50%;">
+								<a
+									href="http://www.lotte.co.kr/index.jsp"  target="_black"
+									class="list-group-items"> <i class="fa fa-home fa-fw"></i>
+									롯데그룹 홈페이지
+								</a>
 							</div>
-						</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="http://www.lotte.co.kr/04_promote/magazine_current.jsp"  target="_black"
+									class="list-group-items"> <i class="fa fa-book fa-fw"></i>
+									롯데그룹 사보
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="http://blog.lotte.co.kr/"  target="_black"
+									class="list-group-items"> <i class="fa fa-bookmark fa-fw"></i>
+									LOTTE Group BLOG
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="https://ko-kr.facebook.com/lotte"  target="_black"
+									class="list-group-items"> <i class="fa fa-facebook fa-fw"></i>
+									LOTTE 페이스북
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="https://secupolicy.net"  target="_black"
+									class="list-group-items"> <i class="fa fa-user-secret fa-fw"></i>
+									롯데그룹 정보보호 포털
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="https://www.lottecompliance.com"  target="_black"
+									class="list-group-items"> <i class="fa fa-heart fa-fw"></i>
+									롯데그룹 윤리경영 사이트
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="http://www.lotteleague.com"  target="_black"
+									class="list-group-items"> <i class="fa fa-soccer-ball-o fa-fw"></i>
+									롯데 자이언츠 배 야구대
+								</a>
+							</div>
+							<div style="float: left; width: 50%;">
+								<a
+									href="http://www.lotteconcerthall.com/"  target="_black"
+									class="list-group-items"> <i class="fa fa-music fa-fw"></i>
+									<img src="https://common.lotte.net/Content/images/portal/main/logo_lotteconsert.png">롯데콘서트홀
+								</a>
+							</div>
+							
+							<br><br><br><br><br><br>
+							<font color="red">LOTTE</font> Education Menu
+							<br><br>
+		
+							<div style="float: left; width: 50%;">
+								<a href="http://www.lotteconcerthall.com/"
+									class="list-group-items" target="_black"> <i class="fa fa-book fa-fw"></i>
+									롯데 ez-Leaming
+								</a>
+							</div>
+
+
+					</div>
+						<!-- /.panel-body -->
+						
 						<!-- /.panel-footer -->
 					</div>
 					<!-- /.panel .chat-panel -->

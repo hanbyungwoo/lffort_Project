@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import model.domain.ToDoDTO;
 import util.DBUtil;
 
 public class ToDoDAO {
-   public static boolean insert(String usrId, String todoType, String startDate,
-         String endDate, String todoDesc, int todoFlag, int todoCheck) throws SQLException {
+   public static boolean insert(String usrId, String todoType, Date sdate,
+         Date edate, String todoDesc, int todoFlag, int todoCheck) throws SQLException {
       Connection con = null;
       PreparedStatement pstmt = null;
       boolean result = false;
@@ -20,8 +21,8 @@ public class ToDoDAO {
 
          pstmt.setString(1, usrId);
          pstmt.setString(2, todoType);
-         pstmt.setString(3, startDate);
-         pstmt.setString(4, endDate);
+         pstmt.setDate(3, new java.sql.Date(sdate.getTime()));
+         pstmt.setDate(4,new java.sql.Date(edate.getTime()));
          pstmt.setString(5, todoDesc);
          pstmt.setInt(6, todoFlag);
          pstmt.setInt(7, todoCheck);

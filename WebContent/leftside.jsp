@@ -22,7 +22,7 @@
 							class="fa fa-edit fa-fw"></i> Register Todo<span class="fa arrow"></span></a></li>
 					<li><a href="#"><i class="fa fa-wrench fa-fw"></i>
 							Share Todo <span class="fa arrow"></span></a>
-					<li><a href="FAQ.jsp"><i class="fa fa-sitemap fa-fw"></i>
+					<li><a href="<%=request.getContextPath()%>/jsp/FAQ.jsp"><i class="fa fa-sitemap fa-fw"></i>
 							FAQ<span class="fa arrow"></span></a>
 					<li><a href="#"><i class="fa fa-files-o fa-fw"></i> Sample
 							Pages<span class="fa arrow"></span></a>

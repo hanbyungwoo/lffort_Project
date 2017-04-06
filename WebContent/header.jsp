@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:if test="${empty not sessionScope.usrId}">
-	<%
-		
-		response.sendRedirect("../Login.html");
-	%>		
+<c:if test="${empty sessionScope.usrId}">
+	<script>
+		alert("비정상적인 접근입니다.");
+		location.href="<%=request.getContextPath()%>/Login.html";
+	</script>		
 </c:if>
 
 
@@ -16,7 +18,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<%=request.getContextPath()%>/jsp/main.jsp" style="color: red">LFFORT${sessionScope.usrId}</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/jsp/main.jsp" style="color: red">LFFORT</a><b>${sessionScope.usrId}</b>님 환영합니다!
 		</div>
 		<!-- /.navbar-header -->
 
@@ -46,7 +48,7 @@
 								elit. Pellentesque eleifend...</div>
 					</a></li>
 					<li class="divider"></li>
-					<li><a href="#">
+					<li><a href="#">	
 							<div>
 								<strong>John Smith</strong> <span class="pull-right text-muted">
 									<em>Yesterday</em>
@@ -130,7 +132,7 @@
 							</div>
 					</a></li>
 					<li class="divider"></li>
-					<li><a class="text-center" href="#"> <strong>See
+					<li><a class="text-center" href="<%=request.getContextPath()%>/DetailWork?page=1&usrid=${sessionScope.usrId}"> <strong>See
 								All Tasks</strong> <i class="fa fa-angle-right"></i>
 					</a></li>
 				</ul> <!-- /.dropdown-tasks --></li>
