@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="controller.SelectInfo, java.util.ArrayList, model.domain.Todo"%>
 
 <c:if test="${empty sessionScope.usrId}">
 	<script>
@@ -63,75 +64,91 @@
 					</a></li>
 				</ul> <!-- /.dropdown-messages --></li>
 			<!-- /.dropdown -->
+			
+			
+			<%
+				ArrayList<Todo> four = SelectInfo.SelectFour((String)session.getAttribute("usrId"));
+				request.setAttribute("four", four);
+			%>
+			
+			
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i>
 					<i class="fa fa-caret-down"></i>
 			</a>
 				<ul class="dropdown-menu dropdown-tasks">
+					<c:if test="${not empty requestScope.four[0] }">
 					<li><a href="#">
 							<div>
 								<p>
-									<strong>Task 1</strong> <span class="pull-right text-muted">40%
+									<strong>${requestScope.four[0].desc}</strong> <span class="pull-right text-muted">${requestScope.four[0].percent}%
 										Complete</span>
 								</p>
 								<div class="progress progress-striped active">
 									<div class="progress-bar progress-bar-success"
-										role="progressbar" aria-valuenow="40" aria-valuemin="0"
-										aria-valuemax="100" style="width: 40%">
-										<span class="sr-only">40% Complete (success)</span>
+										role="progressbar" aria-valuenow="${requestScope.four[0].percent}" aria-valuemin="0"
+										aria-valuemax="100" style="width: ${requestScope.four[0].percent}%">
+										<span class="sr-only">${requestScope.four[0].percent}% Complete (success)</span>
 									</div>
 								</div>
 							</div>
 					</a></li>
 					<li class="divider"></li>
+					</c:if>
+					<c:if test="${not empty requestScope.four[1] }">
 					<li><a href="#">
 							<div>
 								<p>
-									<strong>Task 2</strong> <span class="pull-right text-muted">20%
+									<strong>${requestScope.four[1].desc}</strong> <span class="pull-right text-muted">${requestScope.four[1].percent}%
 										Complete</span>
 								</p>
 								<div class="progress progress-striped active">
 									<div class="progress-bar progress-bar-info" role="progressbar"
-										aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-										style="width: 20%">
-										<span class="sr-only">20% Complete</span>
+										aria-valuenow="${requestScope.four[1].percent}" aria-valuemin="0" aria-valuemax="100"
+										style="width: ${requestScope.four[1].percent}%">
+										<span class="sr-only">${requestScope.four[1].percent}% Complete</span>
 									</div>
 								</div>
 							</div>
 					</a></li>
 					<li class="divider"></li>
+					</c:if>
+					<c:if test="${not empty requestScope.four[2] }">
 					<li><a href="#">
 							<div>
 								<p>
-									<strong>Task 3</strong> <span class="pull-right text-muted">60%
+									<strong>${requestScope.four[2].desc}</strong> <span class="pull-right text-muted">${requestScope.four[2].percent}%
 										Complete</span>
 								</p>
 								<div class="progress progress-striped active">
 									<div class="progress-bar progress-bar-warning"
-										role="progressbar" aria-valuenow="60" aria-valuemin="0"
-										aria-valuemax="100" style="width: 60%">
-										<span class="sr-only">60% Complete (warning)</span>
+										role="progressbar" aria-valuenow="${requestScope.four[2].percent}" aria-valuemin="0"
+										aria-valuemax="100" style="width: ${requestScope.four[2].percent}%">
+										<span class="sr-only">${requestScope.four[2].percent}% Complete (warning)</span>
 									</div>
 								</div>
 							</div>
 					</a></li>
+					</c:if>
+					<c:if test="${not empty requestScope.four[3] }">
 					<li class="divider"></li>
 					<li><a href="#">
 							<div>
 								<p>
-									<strong>Task 4</strong> <span class="pull-right text-muted">80%
+									<strong>${requestScope.four[3].desc}</strong> <span class="pull-right text-muted">${requestScope.four[3].percent}%
 										Complete</span>
 								</p>
 								<div class="progress progress-striped active">
 									<div class="progress-bar progress-bar-danger"
-										role="progressbar" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100" style="width: 80%">
-										<span class="sr-only">80% Complete (danger)</span>
+										role="progressbar" aria-valuenow="${requestScope.four[3].percent}" aria-valuemin="0"
+										aria-valuemax="100" style="width: ${requestScope.four[3].percent}%">
+										<span class="sr-only">${requestScope.four[3].percent}% Complete (danger)</span>
 									</div>
 								</div>
 							</div>
 					</a></li>
 					<li class="divider"></li>
+					</c:if>
 					<li><a class="text-center" href="<%=request.getContextPath()%>/DetailWork?page=1&usrid=${sessionScope.usrId}"> <strong>See
 								All Tasks</strong> <i class="fa fa-angle-right"></i>
 					</a></li>

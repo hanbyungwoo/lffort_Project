@@ -17,6 +17,17 @@ public class Todo {
 		super();
 	}
 	
+	public Todo(String usrId, String todoType, Date start, Date end, String desc, int flag, int percent) {
+		super();
+		this.usrId = usrId;
+		this.todoType = todoType;
+		this.start = start;
+		this.end = end;
+		this.desc = desc;
+		this.flag = flag;
+		this.percent = percent;
+	}
+	
 	public Todo(String usrId, String todoType, Date start, Date end, String desc, int flag, int percent, int total) {
 		super();
 		this.usrId = usrId;

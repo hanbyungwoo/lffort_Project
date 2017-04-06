@@ -34,6 +34,29 @@ public class SelectInfo {
 		
 		return toWork;
 	}
+	public static ArrayList<Todo> SelectFour(String id) throws SQLException, UnsupportedEncodingException {
+		ArrayList<Todo> four = new ArrayList<Todo>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		try {
+			con = DBUtil.getConnection();
+			pstmt = con.prepareStatement("select todo.*, rownum from todo where usrid=? order by rownum desc");
+			pstmt.setString(1, id);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				four.add(new Todo(rset.getString(1), rset.getString(2), rset.getDate(3), rset.getDate(4), rset.getString(5), rset.getInt(6), rset.getInt(7)));
+			}
+			
+		} finally {
+			DBUtil.close(con, pstmt, rset);
+		}
+		
+		System.out.println("SelectFour" + four);
+		return four;
+	}
 	
 	public static ArrayList<Todo> SelectTodo(String id, String page) throws SQLException, UnsupportedEncodingException {
 		System.out.println("wpogpwogjpwoj");
